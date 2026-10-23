@@ -1,7 +1,7 @@
-<div class="w-full max-w-5xl mx-auto py-2 md:py-6 px-2 sm:px-4 space-y-6">
+<div class="w-full max-w-5xl mx-auto py-2 md:py-6 px-2 sm:px-4 space-y-5">
 
   <!-- HEADER SECTION -->
-  <div class="bg-gradient-to-r from-slate-900 via-blue-950 to-slate-900 text-white rounded-3xl p-6 md:p-8 shadow-xl border border-slate-800 relative overflow-hidden">
+  <div class="bg-gradient-to-r from-slate-900 via-blue-950 to-slate-900 text-white rounded-3xl p-5 md:p-7 shadow-xl border border-slate-800 relative overflow-hidden">
     <div class="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
       <div>
         <div class="inline-flex items-center gap-2 bg-blue-500/20 text-blue-300 border border-blue-500/30 font-semibold px-3 py-1 rounded-full text-xs uppercase tracking-wider mb-2">
@@ -9,57 +9,41 @@
         </div>
         <h1 class="text-2xl md:text-3xl font-extrabold tracking-tight text-white">Artifak Pembelajaran Siklus 2 - 4</h1>
         <p class="text-slate-300 text-xs md:text-sm mt-1 max-w-2xl">
-          Dokumentasi Rencana Pembelajaran Mendalam (RPM), bahan ajar, media, instrumen asesmen, analisis artifak, serta bukti dokumentasi foto pelaksanaan pembelajaran di UPTD SDN Tegal Besar 03 Jember.
+          Dokumentasi Rencana Pembelajaran Mendalam (RPM), bahan ajar, media, instrumen asesmen, serta bukti dokumentasi foto pelaksanaan pembelajaran di UPTD SDN Tegal Besar 03 Jember.
         </p>
       </div>
     </div>
   </div>
 
-  <!-- UI/UX NAVIGASI SIKLUS & PERTEMUAN BERGAYA MODERN SEGMENTED CONTROL -->
-  <div class="bg-white rounded-3xl p-4 md:p-5 border border-slate-200/80 shadow-sm space-y-4">
+  <!-- COMPACT NAVIGATION BAR (HEMAT RUANG) -->
+  <div class="bg-white rounded-2xl p-2.5 md:p-3 border border-slate-200/80 shadow-sm flex flex-col md:flex-row items-center justify-between gap-3">
     
-    <!-- HEADER NAVIGASI -->
-    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 pb-3">
-      <div class="flex items-center gap-2">
-        <div class="w-2 h-2 rounded-full bg-blue-600 animate-pulse"></div>
-        <span class="text-xs font-bold text-slate-800 uppercase tracking-wider">Pilih Tahapan Praktik</span>
-      </div>
-      <div id="status-nav-aktif" class="text-xs font-semibold text-blue-700 bg-blue-50 px-3 py-1 rounded-full self-start sm:self-auto">
-        Menampilkan: Siklus 2 — Pertemuan 1
-      </div>
+    <!-- SELEKTOR SIKLUS (TABS COMPACT) -->
+    <div class="flex items-center gap-1.5 w-full md:w-auto bg-slate-100 p-1 rounded-xl">
+      <span class="text-[11px] font-bold text-slate-400 uppercase px-2 shrink-0 hidden sm:inline">Siklus:</span>
+      <button type="button" id="tab-siklus-2" onclick="switchSiklus(2)" class="siklus-btn flex-1 md:flex-none py-1.5 px-3.5 rounded-lg text-xs font-extrabold transition-all duration-200 cursor-pointer bg-white text-blue-700 shadow-sm border border-slate-200/60">
+        Siklus 2
+      </button>
+      <button type="button" id="tab-siklus-3" onclick="switchSiklus(3)" class="siklus-btn flex-1 md:flex-none py-1.5 px-3.5 rounded-lg text-xs font-bold transition-all duration-200 cursor-pointer text-slate-500 hover:text-slate-800 hover:bg-white/60">
+        Siklus 3
+      </button>
+      <button type="button" id="tab-siklus-4" onclick="switchSiklus(4)" class="siklus-btn flex-1 md:flex-none py-1.5 px-3.5 rounded-lg text-xs font-bold transition-all duration-200 cursor-pointer text-slate-500 hover:text-slate-800 hover:bg-white/60">
+        Siklus 4
+      </button>
     </div>
 
-    <!-- TINGKAT 1: SELEKTOR SIKLUS -->
-    <div class="space-y-1.5">
-      <label class="text-[11px] font-bold text-slate-500 uppercase tracking-wider">1. Pilih Siklus Pembelajaran</label>
-      <div class="grid grid-cols-3 gap-2 bg-slate-100/80 p-1.5 rounded-2xl border border-slate-200/60">
-        <button type="button" id="tab-siklus-2" onclick="switchSiklus(2)" class="siklus-btn flex flex-col sm:flex-row items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl text-xs sm:text-sm font-extrabold transition-all duration-200 cursor-pointer bg-white text-blue-700 shadow-md border border-slate-200/60">
-          <span class="w-2 h-2 rounded-full bg-blue-600 shrink-0"></span>
-          <span>Siklus 2</span>
+    <!-- SELEKTOR PERTEMUAN (Pill TABS / DROPDOWN LOOK) -->
+    <div class="flex items-center gap-1.5 w-full md:w-auto justify-end">
+      <span class="text-[11px] font-bold text-slate-500 uppercase shrink-0">Pertemuan:</span>
+      <div class="flex items-center gap-1 bg-slate-50 border border-slate-200/80 p-1 rounded-xl w-full md:w-auto">
+        <button type="button" id="tab-btn-p1" onclick="switchPertemuan(1)" class="pertemuan-btn flex-1 md:flex-none py-1 px-3 rounded-lg text-xs font-bold transition-all duration-200 cursor-pointer bg-blue-600 text-white shadow-xs">
+          P1
         </button>
-        <button type="button" id="tab-siklus-3" onclick="switchSiklus(3)" class="siklus-btn flex flex-col sm:flex-row items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl text-xs sm:text-sm font-bold transition-all duration-200 cursor-pointer text-slate-600 hover:text-slate-900 hover:bg-white/60">
-          <span class="w-2 h-2 rounded-full bg-slate-300 shrink-0"></span>
-          <span>Siklus 3</span>
+        <button type="button" id="tab-btn-p2" onclick="switchPertemuan(2)" class="pertemuan-btn flex-1 md:flex-none py-1 px-3 rounded-lg text-xs font-semibold transition-all duration-200 cursor-pointer text-slate-600 hover:text-slate-900 hover:bg-slate-200/50">
+          P2
         </button>
-        <button type="button" id="tab-siklus-4" onclick="switchSiklus(4)" class="siklus-btn flex flex-col sm:flex-row items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl text-xs sm:text-sm font-bold transition-all duration-200 cursor-pointer text-slate-600 hover:text-slate-900 hover:bg-white/60">
-          <span class="w-2 h-2 rounded-full bg-slate-300 shrink-0"></span>
-          <span>Siklus 4</span>
-        </button>
-      </div>
-    </div>
-
-    <!-- TINGKAT 2: SELEKTOR PERTEMUAN -->
-    <div class="space-y-1.5 pt-1">
-      <label class="text-[11px] font-bold text-slate-500 uppercase tracking-wider">2. Pilih Pertemuan</label>
-      <div class="grid grid-cols-3 gap-2 bg-slate-50 p-1.5 rounded-2xl border border-slate-200/60">
-        <button type="button" id="tab-btn-p1" onclick="switchPertemuan(1)" class="pertemuan-btn py-2 px-3 rounded-xl text-xs sm:text-sm font-bold transition-all duration-200 cursor-pointer bg-blue-600 text-white shadow-sm border-0">
-          Pertemuan 1
-        </button>
-        <button type="button" id="tab-btn-p2" onclick="switchPertemuan(2)" class="pertemuan-btn py-2 px-3 rounded-xl text-xs sm:text-sm font-medium transition-all duration-200 cursor-pointer text-slate-600 hover:text-slate-900 hover:bg-slate-200/60 border-0">
-          Pertemuan 2
-        </button>
-        <button type="button" id="tab-btn-p3" onclick="switchPertemuan(3)" class="pertemuan-btn py-2 px-3 rounded-xl text-xs sm:text-sm font-medium transition-all duration-200 cursor-pointer text-slate-600 hover:text-slate-900 hover:bg-slate-200/60 border-0">
-          Pertemuan 3
+        <button type="button" id="tab-btn-p3" onclick="switchPertemuan(3)" class="pertemuan-btn flex-1 md:flex-none py-1 px-3 rounded-lg text-xs font-semibold transition-all duration-200 cursor-pointer text-slate-600 hover:text-slate-900 hover:bg-slate-200/50">
+          P3
         </button>
       </div>
     </div>
@@ -67,11 +51,11 @@
   </div>
 
   <!-- CONTAINER KONTEN DINAMIS PERTEMUAN -->
-  <div id="content-pertemuan-container" class="space-y-6">
+  <div id="content-pertemuan-container" class="space-y-5">
 
     <!-- RPM & DETAIL UTAMA -->
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
-      <div class="lg:col-span-7 bg-white rounded-3xl p-6 border border-slate-200/80 shadow-sm flex flex-col justify-between space-y-4">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch">
+      <div class="lg:col-span-7 bg-white rounded-3xl p-5 md:p-6 border border-slate-200/80 shadow-sm flex flex-col justify-between space-y-4">
         <div class="space-y-3">
           <div class="flex flex-wrap items-center gap-2">
             <span id="badge-mapel" class="bg-emerald-100 text-emerald-800 text-[11px] font-bold px-2.5 py-0.5 rounded-md">IPAS</span>
@@ -88,7 +72,7 @@
             Rencana Pembelajaran Mendalam (RPM) memfasilitasi pemahaman alur kerja pancaindra melalui integrasi pendekatan Deep Learning dan Problem Based Learning.
           </p>
 
-          <div class="bg-slate-50 p-3.5 rounded-2xl border border-slate-100 text-xs text-slate-600 grid grid-cols-2 gap-2">
+          <div class="bg-slate-50 p-3 rounded-2xl border border-slate-100 text-xs text-slate-600 grid grid-cols-2 gap-2">
             <div><strong class="text-slate-800">Model:</strong> <span id="meta-model">Problem Based Learning</span></div>
             <div><strong class="text-slate-800">Pendekatan:</strong> <span id="meta-pendekatan">Deep Learning</span></div>
             <div><strong class="text-slate-800">Metode:</strong> <span id="meta-metode">Diskusi & Eksperimen</span></div>
@@ -96,8 +80,8 @@
           </div>
         </div>
 
-        <div class="pt-2">
-          <a id="link-drive-rpm" href="#" target="_blank" rel="noopener noreferrer" class="w-full inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs md:text-sm py-3 px-5 rounded-2xl shadow-md transition-all">
+        <div class="pt-1">
+          <a id="link-drive-rpm" href="#" target="_blank" rel="noopener noreferrer" class="w-full inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs md:text-sm py-2.5 px-5 rounded-2xl shadow-md transition-all">
             <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
             <span>Buka Berkas RPM Lengkap di Google Drive</span>
           </a>
@@ -107,30 +91,30 @@
       <!-- PRATINJAU DOKUMEN -->
       <div class="lg:col-span-5 bg-white rounded-3xl p-3 md:p-4 border border-slate-200/80 shadow-sm flex flex-col justify-between">
         <span class="text-xs font-extrabold text-slate-700 mb-2 block">Pratinjau Dokumen Perangkat</span>
-        <div class="w-full h-[320px] md:h-[360px] rounded-2xl overflow-hidden border border-slate-200 bg-slate-100 relative">
+        <div class="w-full h-[300px] md:h-[340px] rounded-2xl overflow-hidden border border-slate-200 bg-slate-100 relative">
           <iframe id="iframe-preview-rpm" src="" class="w-full h-full border-0" allow="autoplay"></iframe>
         </div>
       </div>
     </div>
 
-    <!-- ANALISIS ARTIFAK (SESUAI RUBRIK PENILAIAN) -->
+    <!-- ANALISIS ARTIFAK -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-      <div class="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-sm space-y-1.5">
-        <h3 class="font-extrabold text-sm text-blue-700">1. Analisis Perencanaan & Kesesuaian Teori</h3>
+      <div class="bg-white rounded-2xl p-4 md:p-5 border border-slate-200/80 shadow-sm space-y-1">
+        <h3 class="font-extrabold text-xs md:text-sm text-blue-700">1. Analisis Perencanaan & Kesesuaian Teori</h3>
         <p id="analisis-perencanaan" class="text-xs text-slate-600 leading-relaxed">
           Perancangan materi dan langkah pembelajaran disesuaikan dengan level kemampuan awal peserta didik hasil asesmen diagnostik, serta mengintegrasikan teori belajar konstruktivisme.
         </p>
       </div>
-      <div class="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-sm space-y-1.5">
-        <h3 class="font-extrabold text-sm text-emerald-700">2. Analisis Media, LKPD & Asesmen</h3>
+      <div class="bg-white rounded-2xl p-4 md:p-5 border border-slate-200/80 shadow-sm space-y-1">
+        <h3 class="font-extrabold text-xs md:text-sm text-emerald-700">2. Analisis Media, LKPD & Asesmen</h3>
         <p id="analisis-media" class="text-xs text-slate-600 leading-relaxed">
           Media konkret dan LKPD interaktif memandu peserta didik melakukan penyelidikan saintifik secara berpasangan/kelompok untuk memperkuat pemahaman konsep mendalam.
         </p>
       </div>
     </div>
 
-    <!-- BUKTI ARTIFAK PEMBELAJARAN (PLACEHOLDER FOTO DOKUMENTASI) -->
-    <div class="bg-white rounded-3xl p-6 border border-slate-200/80 shadow-sm space-y-4">
+    <!-- BUKTI ARTIFAK PEMBELAJARAN (TEMPAT FOTO DOKUMENTASI) -->
+    <div class="bg-white rounded-3xl p-5 md:p-6 border border-slate-200/80 shadow-sm space-y-4">
       <div class="flex items-center justify-between border-b border-slate-100 pb-3">
         <div class="flex items-center gap-2">
           <div class="p-2 bg-blue-50 text-blue-600 rounded-xl">
@@ -139,8 +123,8 @@
             </svg>
           </div>
           <div>
-            <h3 class="text-base font-extrabold text-slate-800">Artifak Bukti Foto Kegiatan Pembelajaran</h3>
-            <p class="text-xs text-slate-500">Dokumentasi pelaksanaan pembelajaran di kelas</p>
+            <h3 class="text-sm md:text-base font-extrabold text-slate-800">Artifak Bukti Foto Kegiatan Pembelajaran</h3>
+            <p class="text-[11px] text-slate-500">Dokumentasi pelaksanaan pembelajaran di kelas</p>
           </div>
         </div>
         <span id="label-bukti-pertemuan" class="text-xs font-bold text-blue-700 bg-blue-50 px-3 py-1 rounded-lg">
@@ -148,39 +132,36 @@
         </span>
       </div>
 
-      <!-- GRID PLACEHOLDER FOTO DUMMY -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+      <!-- GRID FOTO PLACEHOLDER -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 md:gap-4">
         
-        <!-- FOTO 1 -->
-        <div class="group relative bg-slate-100 rounded-2xl border-2 border-dashed border-slate-300 p-4 min-h-[200px] flex flex-col items-center justify-center text-center hover:border-blue-400 transition-all overflow-hidden">
+        <div class="group relative bg-slate-50 rounded-2xl border-2 border-dashed border-slate-200 p-4 min-h-[160px] md:min-h-[180px] flex flex-col items-center justify-center text-center hover:border-blue-400 transition-all overflow-hidden">
           <img id="foto-bukti-1" src="" class="hidden absolute inset-0 w-full h-full object-cover rounded-2xl" alt="Bukti 1">
-          <div class="space-y-1.5 z-10">
-            <div class="w-10 h-10 mx-auto rounded-full bg-slate-200 flex items-center justify-center text-slate-500">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+          <div class="space-y-1 z-10">
+            <div class="w-8 h-8 mx-auto rounded-full bg-slate-200 flex items-center justify-center text-slate-500">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
             </div>
             <p class="text-xs font-bold text-slate-600">Kegiatan Pendahuluan</p>
             <p class="text-[10px] text-slate-400">Apersepsi & Refleksi Awal</p>
           </div>
         </div>
 
-        <!-- FOTO 2 -->
-        <div class="group relative bg-slate-100 rounded-2xl border-2 border-dashed border-slate-300 p-4 min-h-[200px] flex flex-col items-center justify-center text-center hover:border-blue-400 transition-all overflow-hidden">
+        <div class="group relative bg-slate-50 rounded-2xl border-2 border-dashed border-slate-200 p-4 min-h-[160px] md:min-h-[180px] flex flex-col items-center justify-center text-center hover:border-blue-400 transition-all overflow-hidden">
           <img id="foto-bukti-2" src="" class="hidden absolute inset-0 w-full h-full object-cover rounded-2xl" alt="Bukti 2">
-          <div class="space-y-1.5 z-10">
-            <div class="w-10 h-10 mx-auto rounded-full bg-slate-200 flex items-center justify-center text-slate-500">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+          <div class="space-y-1 z-10">
+            <div class="w-8 h-8 mx-auto rounded-full bg-slate-200 flex items-center justify-center text-slate-500">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
             </div>
             <p class="text-xs font-bold text-slate-600">Kegiatan Inti</p>
             <p class="text-[10px] text-slate-400">Diskusi Kelompok & Media</p>
           </div>
         </div>
 
-        <!-- FOTO 3 -->
-        <div class="group relative bg-slate-100 rounded-2xl border-2 border-dashed border-slate-300 p-4 min-h-[200px] flex flex-col items-center justify-center text-center hover:border-blue-400 transition-all overflow-hidden">
+        <div class="group relative bg-slate-50 rounded-2xl border-2 border-dashed border-slate-200 p-4 min-h-[160px] md:min-h-[180px] flex flex-col items-center justify-center text-center hover:border-blue-400 transition-all overflow-hidden">
           <img id="foto-bukti-3" src="" class="hidden absolute inset-0 w-full h-full object-cover rounded-2xl" alt="Bukti 3">
-          <div class="space-y-1.5 z-10">
-            <div class="w-10 h-10 mx-auto rounded-full bg-slate-200 flex items-center justify-center text-slate-500">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+          <div class="space-y-1 z-10">
+            <div class="w-8 h-8 mx-auto rounded-full bg-slate-200 flex items-center justify-center text-slate-500">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
             </div>
             <p class="text-xs font-bold text-slate-600">Kegiatan Penutup</p>
             <p class="text-[10px] text-slate-400">Presentasi & Evaluasi Asesmen</p>
@@ -194,13 +175,11 @@
 
 </div>
 
-<!-- SCRIPT LOGIKA NAVIGASI & DATABASE DUMMY LENGKAP -->
+<!-- SCRIPT LOGIKA NAVIGASI RINGKAS & DATABASE DUMMY LENGKAP -->
 <script>
-  // Global State
   window.currentSiklus = window.currentSiklus || 2;
   window.currentPertemuan = window.currentPertemuan || 1;
 
-  // Database Konten Siklus 2 s.d. 4 (Setiap Siklus Memiliki 3 Pertemuan)
   const dataPembelajaran = {
     2: {
       1: {
@@ -294,21 +273,17 @@
     }
   };
 
-  // Fungsi Switch Siklus
   function switchSiklus(siklusNum) {
     window.currentSiklus = siklusNum;
-    window.currentPertemuan = 1; // Kembali ke Pertemuan 1 tiap kali ganti siklus
+    window.currentPertemuan = 1;
 
-    // Update Tampilan Tombol Siklus
     [2, 3, 4].forEach(s => {
       const btn = document.getElementById(`tab-siklus-${s}`);
       if (btn) {
         if (s === siklusNum) {
-          btn.className = "siklus-btn flex flex-col sm:flex-row items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl text-xs sm:text-sm font-extrabold transition-all duration-200 cursor-pointer bg-white text-blue-700 shadow-md border border-slate-200/60";
-          btn.querySelector('span').className = "w-2 h-2 rounded-full bg-blue-600 shrink-0";
+          btn.className = "siklus-btn flex-1 md:flex-none py-1.5 px-3.5 rounded-lg text-xs font-extrabold transition-all duration-200 cursor-pointer bg-white text-blue-700 shadow-sm border border-slate-200/60";
         } else {
-          btn.className = "siklus-btn flex flex-col sm:flex-row items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl text-xs sm:text-sm font-bold transition-all duration-200 cursor-pointer text-slate-600 hover:text-slate-900 hover:bg-white/60";
-          btn.querySelector('span').className = "w-2 h-2 rounded-full bg-slate-300 shrink-0";
+          btn.className = "siklus-btn flex-1 md:flex-none py-1.5 px-3.5 rounded-lg text-xs font-bold transition-all duration-200 cursor-pointer text-slate-500 hover:text-slate-800 hover:bg-white/60";
         }
       }
     });
@@ -316,13 +291,11 @@
     renderDataContent();
   }
 
-  // Fungsi Switch Pertemuan
   function switchPertemuan(pertemuanNum) {
     window.currentPertemuan = pertemuanNum;
     renderDataContent();
   }
 
-  // Render Data ke UI
   function renderDataContent() {
     const siklus = window.currentSiklus;
     const pertemuan = window.currentPertemuan;
@@ -330,22 +303,17 @@
 
     if (!data) return;
 
-    // Update Tampilan Tombol Pertemuan
     [1, 2, 3].forEach(p => {
       const btn = document.getElementById(`tab-btn-p${p}`);
       if (btn) {
         if (p === pertemuan) {
-          btn.className = "pertemuan-btn py-2 px-3 rounded-xl text-xs sm:text-sm font-bold transition-all duration-200 cursor-pointer bg-blue-600 text-white shadow-sm border-0";
+          btn.className = "pertemuan-btn flex-1 md:flex-none py-1 px-3 rounded-lg text-xs font-bold transition-all duration-200 cursor-pointer bg-blue-600 text-white shadow-xs";
         } else {
-          btn.className = "pertemuan-btn py-2 px-3 rounded-xl text-xs sm:text-sm font-medium transition-all duration-200 cursor-pointer text-slate-600 hover:text-slate-900 hover:bg-slate-200/60 border-0";
+          btn.className = "pertemuan-btn flex-1 md:flex-none py-1 px-3 rounded-lg text-xs font-semibold transition-all duration-200 cursor-pointer text-slate-600 hover:text-slate-900 hover:bg-slate-200/50";
         }
       }
     });
 
-    // Update Status Navigasi Teks
-    document.getElementById('status-nav-aktif').textContent = `Menampilkan: Siklus ${siklus} — Pertemuan ${pertemuan}`;
-
-    // Populate Data Ke Elemen HTML
     document.getElementById('badge-mapel').textContent = data.mapel;
     document.getElementById('badge-kelas').textContent = data.kelas;
     document.getElementById('badge-alokasi').textContent = data.alokasi;
@@ -367,6 +335,5 @@
     document.getElementById('label-bukti-pertemuan').textContent = `Siklus ${siklus} — Pertemuan ${pertemuan}`;
   }
 
-  // Inisialisasi awal saat pertama kali dimuat
   renderDataContent();
 </script>
