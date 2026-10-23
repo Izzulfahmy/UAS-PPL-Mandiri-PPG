@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E-Portfolio PPG Calon Guru - Muhammad Izzul Fahmi</title>
+    <title>E-Portfolio UAS PPL PPG Calon Guru - Muhammad Izzul Fahmi</title>
     
     <!-- FAVICON LOGO UNEJ -->
     <link rel="icon" type="image/png" href="assets/logo.png">
@@ -153,22 +153,24 @@
             `;
 
             try {
-                const res = await fetch(`pages/${pageFile}`);
+                // Mendukung pemanggilan dari folder utama maupun folder pages/
+                const pagePath = pageFile.startsWith('pages/') ? pageFile : `pages/${pageFile}`;
+                const res = await fetch(pagePath);
                 if (!res.ok) throw new Error('Halaman tidak ditemukan');
                 
                 container.innerHTML = await res.text();
-                updateNavButtons(pageFile);
+                updateNavButtons(pageFile.replace('pages/', ''));
                 window.scrollTo({ top: 0, behavior: 'smooth' });
 
                 // Event Listener khusus Sub-Tab Pembelajaran
-                if (pageFile === 'pembelajaran.html') {
+                if (pageFile.includes('pembelajaran.html')) {
                     setupPembelajaranSubTabs();
                 }
             } catch (err) {
                 container.innerHTML = `
                     <div class="bg-white rounded-2xl p-8 border border-slate-200 text-center w-full shadow-sm space-y-2 my-auto">
                         <p class="text-slate-700 font-bold">Gagal memuat halaman ${pageFile}</p>
-                        <p class="text-xs text-slate-400">Pastikan file berada di folder pages/ dan tidak ada typo nama file.</p>
+                        <p class="text-xs text-slate-400">Pastikan file berada di folder pages/ dan tidak ada kesalahan penulisan nama file.</p>
                     </div>
                 `;
             }
