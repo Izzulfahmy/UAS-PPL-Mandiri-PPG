@@ -15,48 +15,37 @@
     </div>
   </div>
 
-  <!-- DROPDOWN SELECTOR RINGKAS UNTUK SIKLUS & PERTEMUAN -->
-  <div class="bg-white rounded-2xl p-3 md:p-4 border border-slate-200/80 shadow-sm space-y-3">
+  <!-- BERSiH & RINGKAS: DERET TOMBOL SIKLUS & PERTEMUAN -->
+  <div class="bg-white rounded-2xl p-2.5 md:p-3.5 border border-slate-200/80 shadow-sm flex flex-col md:flex-row items-center justify-between gap-3">
     
-    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-      <label for="select-siklus" class="text-xs font-bold text-slate-700 uppercase tracking-wider flex items-center gap-2">
-        <span class="w-2 h-2 rounded-full bg-blue-600 animate-pulse"></span>
-        Pilih Siklus & Pertemuan Pembelajaran:
-      </label>
-      <span id="label-status-pilihan" class="text-xs font-bold text-blue-700 bg-blue-50 px-3 py-1 rounded-full self-start sm:self-auto">
-        Aktif: Siklus 2 — Pertemuan 1
-      </span>
+    <!-- DERET TOMBOL SIKLUS (SIKLUS 2 - 4) -->
+    <div class="flex items-center gap-1.5 w-full md:w-auto bg-slate-100/80 p-1 rounded-xl">
+      <span class="text-[11px] font-extrabold text-slate-400 uppercase px-2 shrink-0 hidden sm:inline">Siklus:</span>
+      <button type="button" id="btn-siklus-2" onclick="switchSiklus(2)" class="btn-siklus flex-1 md:flex-none py-1.5 px-4 rounded-lg text-xs font-extrabold transition-all duration-200 cursor-pointer bg-white text-blue-700 shadow-xs border border-slate-200/60">
+        Siklus 2
+      </button>
+      <button type="button" id="btn-siklus-3" onclick="switchSiklus(3)" class="btn-siklus flex-1 md:flex-none py-1.5 px-4 rounded-lg text-xs font-bold transition-all duration-200 cursor-pointer text-slate-500 hover:text-slate-800 hover:bg-white/60">
+        Siklus 3
+      </button>
+      <button type="button" id="btn-siklus-4" onclick="switchSiklus(4)" class="btn-siklus flex-1 md:flex-none py-1.5 px-4 rounded-lg text-xs font-bold transition-all duration-200 cursor-pointer text-slate-500 hover:text-slate-800 hover:bg-white/60">
+        Siklus 4
+      </button>
     </div>
 
-    <!-- CONTROL DROPDOWN SIKLUS -->
-    <div class="grid grid-cols-1 md:grid-cols-12 gap-3 items-center">
-      
-      <!-- DROPDOWN SIKLUS -->
-      <div class="md:col-span-5 relative">
-        <select id="select-siklus" onchange="handleSiklusChange(this.value)" class="w-full bg-slate-50 border border-slate-300 text-slate-800 text-xs md:text-sm font-extrabold rounded-xl p-2.5 pr-8 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 block appearance-none cursor-pointer transition-all">
-          <option value="2">🔄 Siklus 2 (Praktik Mandiri 1)</option>
-          <option value="3">🔄 Siklus 3 (Praktik Mandiri 2)</option>
-          <option value="4">🔄 Siklus 4 (Praktik Mandiri 3)</option>
-        </select>
-        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-slate-500">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-        </div>
-      </div>
-
-      <!-- TABS/PILLS PERTEMUAN SIKLUS TERPILIH -->
-      <div class="md:col-span-7 flex items-center gap-1.5 bg-slate-100 p-1 rounded-xl">
-        <span class="text-[11px] font-bold text-slate-400 uppercase px-2 shrink-0">Pertemuan:</span>
-        <button type="button" id="btn-p1" onclick="switchPertemuan(1)" class="btn-pertemuan flex-1 py-1.5 px-3 rounded-lg text-xs font-bold transition-all cursor-pointer bg-blue-600 text-white shadow-xs">
-          Pertemuan 1
+    <!-- DERET TOMBOL PERTEMUAN (P1 - P3) -->
+    <div class="flex items-center gap-1.5 w-full md:w-auto justify-end">
+      <span class="text-[11px] font-extrabold text-slate-400 uppercase shrink-0 px-1">Pertemuan:</span>
+      <div class="flex items-center gap-1 bg-slate-100/80 p-1 rounded-xl w-full md:w-auto">
+        <button type="button" id="btn-p1" onclick="switchPertemuan(1)" class="btn-pertemuan flex-1 md:flex-none py-1.5 px-3.5 rounded-lg text-xs font-extrabold transition-all duration-200 cursor-pointer bg-blue-600 text-white shadow-xs">
+          P1
         </button>
-        <button type="button" id="btn-p2" onclick="switchPertemuan(2)" class="btn-pertemuan flex-1 py-1.5 px-3 rounded-lg text-xs font-medium transition-all cursor-pointer text-slate-600 hover:text-slate-900 hover:bg-white/60">
-          Pertemuan 2
+        <button type="button" id="btn-p2" onclick="switchPertemuan(2)" class="btn-pertemuan flex-1 md:flex-none py-1.5 px-3.5 rounded-lg text-xs font-semibold transition-all duration-200 cursor-pointer text-slate-600 hover:text-slate-900 hover:bg-white/60">
+          P2
         </button>
-        <button type="button" id="btn-p3" onclick="switchPertemuan(3)" class="btn-pertemuan flex-1 py-1.5 px-3 rounded-lg text-xs font-medium transition-all cursor-pointer text-slate-600 hover:text-slate-900 hover:bg-white/60">
-          Pertemuan 3
+        <button type="button" id="btn-p3" onclick="switchPertemuan(3)" class="btn-pertemuan flex-1 md:flex-none py-1.5 px-3.5 rounded-lg text-xs font-semibold transition-all duration-200 cursor-pointer text-slate-600 hover:text-slate-900 hover:bg-white/60">
+          P3
         </button>
       </div>
-
     </div>
 
   </div>
@@ -186,7 +175,7 @@
 
 </div>
 
-<!-- SCRIPT LOGIKA NAVIGATION DROPDOWN & DATA DUMMY -->
+<!-- SCRIPT LOGIKA NAVIGATION DERET TOMBOL SIKLUS & DATA DUMMY -->
 <script>
   window.currentSiklus = window.currentSiklus || 2;
   window.currentPertemuan = window.currentPertemuan || 1;
@@ -284,9 +273,21 @@
     }
   };
 
-  function handleSiklusChange(value) {
-    window.currentSiklus = parseInt(value);
-    window.currentPertemuan = 1; // Auto reset ke P1 setiap ubah siklus
+  function switchSiklus(siklusNum) {
+    window.currentSiklus = siklusNum;
+    window.currentPertemuan = 1;
+
+    [2, 3, 4].forEach(s => {
+      const btn = document.getElementById(`btn-siklus-${s}`);
+      if (btn) {
+        if (s === siklusNum) {
+          btn.className = "btn-siklus flex-1 md:flex-none py-1.5 px-4 rounded-lg text-xs font-extrabold transition-all duration-200 cursor-pointer bg-white text-blue-700 shadow-xs border border-slate-200/60";
+        } else {
+          btn.className = "btn-siklus flex-1 md:flex-none py-1.5 px-4 rounded-lg text-xs font-bold transition-all duration-200 cursor-pointer text-slate-500 hover:text-slate-800 hover:bg-white/60";
+        }
+      }
+    });
+
     renderDataContent();
   }
 
@@ -302,26 +303,17 @@
 
     if (!data) return;
 
-    // Synchronize Dropdown Value jika dipanggil dari tempat lain
-    const selectEl = document.getElementById('select-siklus');
-    if (selectEl && parseInt(selectEl.value) !== siklus) {
-      selectEl.value = siklus;
-    }
-
-    // Update Styling Tombol Pertemuan
     [1, 2, 3].forEach(p => {
       const btn = document.getElementById(`btn-p${p}`);
       if (btn) {
         if (p === pertemuan) {
-          btn.className = "btn-pertemuan flex-1 py-1.5 px-3 rounded-lg text-xs font-bold transition-all cursor-pointer bg-blue-600 text-white shadow-xs";
+          btn.className = "btn-pertemuan flex-1 md:flex-none py-1.5 px-3.5 rounded-lg text-xs font-extrabold transition-all duration-200 cursor-pointer bg-blue-600 text-white shadow-xs";
         } else {
-          btn.className = "btn-pertemuan flex-1 py-1.5 px-3 rounded-lg text-xs font-medium transition-all cursor-pointer text-slate-600 hover:text-slate-900 hover:bg-white/60";
+          btn.className = "btn-pertemuan flex-1 md:flex-none py-1.5 px-3.5 rounded-lg text-xs font-semibold transition-all duration-200 cursor-pointer text-slate-600 hover:text-slate-900 hover:bg-white/60";
         }
       }
     });
 
-    // Update Badge & Label
-    document.getElementById('label-status-pilihan').textContent = `Aktif: Siklus ${siklus} — Pertemuan ${pertemuan}`;
     document.getElementById('badge-mapel').textContent = data.mapel;
     document.getElementById('badge-kelas').textContent = data.kelas;
     document.getElementById('badge-alokasi').textContent = data.alokasi;
@@ -343,6 +335,5 @@
     document.getElementById('label-bukti-pertemuan').textContent = `Siklus ${siklus} — Pertemuan ${pertemuan}`;
   }
 
-  // Inisialisasi Tampilan
   renderDataContent();
 </script>
