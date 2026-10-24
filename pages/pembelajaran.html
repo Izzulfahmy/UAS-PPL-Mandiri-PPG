@@ -20,97 +20,386 @@
     
     <!-- DERET TOMBOL SIKLUS (SIKLUS 2 - 4) -->
     <div class="flex items-center gap-1.5 w-full md:w-auto bg-slate-100/80 p-1 rounded-xl">
-      <button type="button" data-siklus="2" id="btn-siklus-2" class="btn-siklus flex-1 md:flex-none py-1.5 px-4 rounded-lg text-xs font-extrabold transition-all duration-200 cursor-pointer bg-white text-blue-700 shadow-xs border border-slate-200/60">
+      <button type="button" id="btn-s2" onclick="setSiklus(2)" class="btn-siklus flex-1 md:flex-none py-1.5 px-4 rounded-lg text-xs font-extrabold transition-all cursor-pointer bg-white text-blue-700 shadow-xs border border-slate-200/60">
         Siklus 2
       </button>
-      <button type="button" data-siklus="3" id="btn-siklus-3" class="btn-siklus flex-1 md:flex-none py-1.5 px-4 rounded-lg text-xs font-bold transition-all duration-200 cursor-pointer text-slate-500 hover:text-slate-800 hover:bg-white/60">
+      <button type="button" id="btn-s3" onclick="setSiklus(3)" class="btn-siklus flex-1 md:flex-none py-1.5 px-4 rounded-lg text-xs font-bold transition-all cursor-pointer text-slate-500 hover:text-slate-800 hover:bg-white/60">
         Siklus 3
       </button>
-      <button type="button" data-siklus="4" id="btn-siklus-4" class="btn-siklus flex-1 md:flex-none py-1.5 px-4 rounded-lg text-xs font-bold transition-all duration-200 cursor-pointer text-slate-500 hover:text-slate-800 hover:bg-white/60">
+      <button type="button" id="btn-s4" onclick="setSiklus(4)" class="btn-siklus flex-1 md:flex-none py-1.5 px-4 rounded-lg text-xs font-bold transition-all cursor-pointer text-slate-500 hover:text-slate-800 hover:bg-white/60">
         Siklus 4
       </button>
     </div>
 
     <!-- DERET TOMBOL PERTEMUAN (P1 - P3) -->
     <div class="flex items-center gap-1 bg-slate-100/80 p-1 rounded-xl w-full md:w-auto">
-      <button type="button" data-pertemuan="1" id="btn-p1" class="btn-pertemuan flex-1 md:flex-none py-1.5 px-4 rounded-lg text-xs font-extrabold transition-all duration-200 cursor-pointer bg-blue-600 text-white shadow-xs">
+      <button type="button" id="btn-p1" onclick="setPertemuan(1)" class="btn-pertemuan flex-1 md:flex-none py-1.5 px-4 rounded-lg text-xs font-extrabold transition-all cursor-pointer bg-blue-600 text-white shadow-xs">
         Pertemuan 1
       </button>
-      <button type="button" data-pertemuan="2" id="btn-p2" class="btn-pertemuan flex-1 md:flex-none py-1.5 px-4 rounded-lg text-xs font-semibold transition-all duration-200 cursor-pointer text-slate-600 hover:text-slate-900 hover:bg-white/60">
+      <button type="button" id="btn-p2" onclick="setPertemuan(2)" class="btn-pertemuan flex-1 md:flex-none py-1.5 px-4 rounded-lg text-xs font-semibold transition-all cursor-pointer text-slate-600 hover:text-slate-900 hover:bg-white/60">
         Pertemuan 2
       </button>
-      <button type="button" data-pertemuan="3" id="btn-p3" class="btn-pertemuan flex-1 md:flex-none py-1.5 px-4 rounded-lg text-xs font-semibold transition-all duration-200 cursor-pointer text-slate-600 hover:text-slate-900 hover:bg-white/60">
+      <button type="button" id="btn-p3" onclick="setPertemuan(3)" class="btn-pertemuan flex-1 md:flex-none py-1.5 px-4 rounded-lg text-xs font-semibold transition-all cursor-pointer text-slate-600 hover:text-slate-900 hover:bg-white/60">
         Pertemuan 3
       </button>
     </div>
 
   </div>
 
-  <!-- CONTAINER KONTEN DINAMIS PERTEMUAN -->
-  <div id="content-pertemuan-container" class="space-y-5">
+  <!-- CONTAINER UTAMA -->
+  <div id="artifak-content-container">
 
-    <!-- RPM & DETAIL UTAMA -->
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch">
-      <div class="lg:col-span-7 bg-white rounded-3xl p-5 md:p-6 border border-slate-200/80 shadow-sm flex flex-col justify-between space-y-4">
-        <div class="space-y-3">
-          <div class="flex flex-wrap items-center gap-2">
-            <span id="badge-mapel" class="bg-emerald-100 text-emerald-800 text-[11px] font-bold px-2.5 py-0.5 rounded-md">Matematika</span>
-            <span id="badge-kelas" class="bg-slate-100 text-slate-700 text-[11px] font-bold px-2.5 py-0.5 rounded-md">Kelas III / Fase B</span>
-            <span id="badge-alokasi" class="bg-blue-100 text-blue-800 text-[11px] font-bold px-2.5 py-0.5 rounded-md">2 JP (2 x 35 Menit)</span>
+    <!-- ================= SIKLUS 2 - PERTEMUAN 1 ================= -->
+    <div id="item-s2-p1" class="artifak-item space-y-5">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch">
+        <div class="lg:col-span-7 bg-white rounded-3xl p-5 md:p-6 border border-slate-200/80 shadow-sm flex flex-col justify-between space-y-4">
+          <div class="space-y-3">
+            <div class="flex flex-wrap items-center gap-2">
+              <span class="bg-emerald-100 text-emerald-800 text-[11px] font-bold px-2.5 py-0.5 rounded-md">Matematika</span>
+              <span class="bg-slate-100 text-slate-700 text-[11px] font-bold px-2.5 py-0.5 rounded-md">Kelas III / Fase B</span>
+              <span class="bg-blue-100 text-blue-800 text-[11px] font-bold px-2.5 py-0.5 rounded-md">2 JP (2 x 35 Menit)</span>
+            </div>
+            <div>
+              <h2 class="text-xl font-extrabold text-slate-800">Matematika — Siklus Mandiri 2</h2>
+              <p class="text-xs md:text-sm font-semibold text-blue-700 mt-0.5">Pertemuan 1</p>
+            </div>
+            <p class="text-xs md:text-sm text-slate-600 leading-relaxed">Rencana Pembelajaran Mendalam (RPM) Matematika Siklus Mandiri 2 Pertemuan 1 yang dirancang untuk memfasilitasi pemahaman kontekstual murid.</p>
+            <div class="bg-slate-50 p-3 rounded-2xl border border-slate-100 text-xs text-slate-600 grid grid-cols-2 gap-2">
+              <div><strong class="text-slate-800">Model:</strong> Problem Based Learning</div>
+              <div><strong class="text-slate-800">Pendekatan:</strong> Deep Learning</div>
+              <div><strong class="text-slate-800">Metode:</strong> Diskusi & Problem Solving</div>
+              <div><strong class="text-slate-800">Dimensi:</strong> Bernalar Kritis & Gotong Royong</div>
+            </div>
           </div>
-
-          <div>
-            <h2 id="text-judul-bab" class="text-xl font-extrabold text-slate-800">Bab 1 Pengukuran</h2>
-            <p id="text-topik" class="text-xs md:text-sm font-semibold text-blue-700 mt-0.5">Topik: Pengukuran Panjang dan Berat</p>
-          </div>
-
-          <p id="text-deskripsi" class="text-xs md:text-sm text-slate-600 leading-relaxed">
-            Rencana Pembelajaran Mendalam (RPM) memfasilitasi pemahaman alur kerja dan konsep materi melalui integrasi pendekatan Deep Learning dan Problem Based Learning.
-          </p>
-
-          <div class="bg-slate-50 p-3 rounded-2xl border border-slate-100 text-xs text-slate-600 grid grid-cols-2 gap-2">
-            <div><strong class="text-slate-800">Model:</strong> <span id="meta-model">Problem Based Learning</span></div>
-            <div><strong class="text-slate-800">Pendekatan:</strong> <span id="meta-pendekatan">Deep Learning</span></div>
-            <div><strong class="text-slate-800">Metode:</strong> <span id="meta-metode">Diskusi & Eksperimen</span></div>
-            <div><strong class="text-slate-800">Dimensi:</strong> <span id="meta-dimensi">Bernalar Kritis & Gotong Royong</span></div>
+          <div class="pt-1 flex items-center justify-center">
+            <a href="https://drive.google.com/file/d/1RNrWRrwes2ZmnibOTP_-mx4O9o1APGdK/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="p-2 bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-all inline-block">
+              <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https%3A%2F%2Fdrive.google.com%2Ffile%2Fd%2F1RNrWRrwes2ZmnibOTP_-mx4O9o1APGdK%2Fview%3Fusp%3Ddrive_link" alt="QR Code" class="w-28 h-28 object-contain">
+            </a>
           </div>
         </div>
-
-        <!-- QR CODE TANPA TULISAN -->
-        <div class="pt-1 flex items-center justify-center">
-          <a id="link-drive-rpm" href="#" target="_blank" rel="noopener noreferrer" class="p-2 bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-all inline-block">
-            <img id="qr-code-rpm" src="" alt="QR Code Google Drive" class="w-28 h-28 object-contain">
-          </a>
-        </div>
-      </div>
-
-      <!-- PRATINJAU DOKUMEN -->
-      <div class="lg:col-span-5 bg-white rounded-3xl p-3 md:p-4 border border-slate-200/80 shadow-sm flex flex-col justify-between">
-        <span class="text-xs font-extrabold text-slate-700 mb-2 block">Pratinjau Dokumen Perangkat</span>
-        <div class="w-full h-[300px] md:h-[340px] rounded-2xl overflow-hidden border border-slate-200 bg-slate-100 relative">
-          <iframe id="iframe-preview-rpm" src="" class="w-full h-full border-0" allow="autoplay"></iframe>
+        <div class="lg:col-span-5 bg-white rounded-3xl p-3 md:p-4 border border-slate-200/80 shadow-sm flex flex-col justify-between">
+          <span class="text-xs font-extrabold text-slate-700 mb-2 block">Pratinjau Dokumen Perangkat</span>
+          <div class="w-full h-[300px] md:h-[340px] rounded-2xl overflow-hidden border border-slate-200 bg-slate-100 relative">
+            <iframe src="https://drive.google.com/file/d/1RNrWRrwes2ZmnibOTP_-mx4O9o1APGdK/preview" class="w-full h-full border-0" allow="autoplay"></iframe>
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- ANALISIS ARTIFAK -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <!-- ================= SIKLUS 2 - PERTEMUAN 2 ================= -->
+    <div id="item-s2-p2" class="artifak-item space-y-5 hidden">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch">
+        <div class="lg:col-span-7 bg-white rounded-3xl p-5 md:p-6 border border-slate-200/80 shadow-sm flex flex-col justify-between space-y-4">
+          <div class="space-y-3">
+            <div class="flex flex-wrap items-center gap-2">
+              <span class="bg-emerald-100 text-emerald-800 text-[11px] font-bold px-2.5 py-0.5 rounded-md">IPAS</span>
+              <span class="bg-slate-100 text-slate-700 text-[11px] font-bold px-2.5 py-0.5 rounded-md">Kelas III / Fase B</span>
+              <span class="bg-blue-100 text-blue-800 text-[11px] font-bold px-2.5 py-0.5 rounded-md">2 JP (2 x 35 Menit)</span>
+            </div>
+            <div>
+              <h2 class="text-xl font-extrabold text-slate-800">IPAS — Siklus Mandiri 2</h2>
+              <p class="text-xs md:text-sm font-semibold text-blue-700 mt-0.5">Pertemuan 2</p>
+            </div>
+            <p class="text-xs md:text-sm text-slate-600 leading-relaxed">Rencana Pembelajaran Mendalam (RPM) IPAS Siklus Mandiri 2 Pertemuan 2 yang menekankan eksplorasi dan pengamatan langsung.</p>
+            <div class="bg-slate-50 p-3 rounded-2xl border border-slate-100 text-xs text-slate-600 grid grid-cols-2 gap-2">
+              <div><strong class="text-slate-800">Model:</strong> Problem Based Learning</div>
+              <div><strong class="text-slate-800">Pendekatan:</strong> Deep Learning</div>
+              <div><strong class="text-slate-800">Metode:</strong> Observasi & Eksperimen</div>
+              <div><strong class="text-slate-800">Dimensi:</strong> Bernalar Kritis & Gotong Royong</div>
+            </div>
+          </div>
+          <div class="pt-1 flex items-center justify-center">
+            <a href="https://drive.google.com/file/d/1fBUBv8WaEqxRas-oOuVSjBtH2K33VJrM/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="p-2 bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-all inline-block">
+              <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https%3A%2F%2Fdrive.google.com%2Ffile%2Fd%2F1fBUBv8WaEqxRas-oOuVSjBtH2K33VJrM%2Fview%3Fusp%3Ddrive_link" alt="QR Code" class="w-28 h-28 object-contain">
+            </a>
+          </div>
+        </div>
+        <div class="lg:col-span-5 bg-white rounded-3xl p-3 md:p-4 border border-slate-200/80 shadow-sm flex flex-col justify-between">
+          <span class="text-xs font-extrabold text-slate-700 mb-2 block">Pratinjau Dokumen Perangkat</span>
+          <div class="w-full h-[300px] md:h-[340px] rounded-2xl overflow-hidden border border-slate-200 bg-slate-100 relative">
+            <iframe src="https://drive.google.com/file/d/1fBUBv8WaEqxRas-oOuVSjBtH2K33VJrM/preview" class="w-full h-full border-0" allow="autoplay"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= SIKLUS 2 - PERTEMUAN 3 ================= -->
+    <div id="item-s2-p3" class="artifak-item space-y-5 hidden">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch">
+        <div class="lg:col-span-7 bg-white rounded-3xl p-5 md:p-6 border border-slate-200/80 shadow-sm flex flex-col justify-between space-y-4">
+          <div class="space-y-3">
+            <div class="flex flex-wrap items-center gap-2">
+              <span class="bg-emerald-100 text-emerald-800 text-[11px] font-bold px-2.5 py-0.5 rounded-md">Matematika</span>
+              <span class="bg-slate-100 text-slate-700 text-[11px] font-bold px-2.5 py-0.5 rounded-md">Kelas III / Fase B</span>
+              <span class="bg-blue-100 text-blue-800 text-[11px] font-bold px-2.5 py-0.5 rounded-md">2 JP (2 x 35 Menit)</span>
+            </div>
+            <div>
+              <h2 class="text-xl font-extrabold text-slate-800">Matematika — Siklus Mandiri 2</h2>
+              <p class="text-xs md:text-sm font-semibold text-blue-700 mt-0.5">Pertemuan 3</p>
+            </div>
+            <p class="text-xs md:text-sm text-slate-600 leading-relaxed">Rencana Pembelajaran Mendalam (RPM) Matematika Siklus Mandiri 2 Pertemuan 3 yang berfokus pada pemantapan konsep dan latihan terbimbing.</p>
+            <div class="bg-slate-50 p-3 rounded-2xl border border-slate-100 text-xs text-slate-600 grid grid-cols-2 gap-2">
+              <div><strong class="text-slate-800">Model:</strong> Problem Based Learning</div>
+              <div><strong class="text-slate-800">Pendekatan:</strong> Deep Learning</div>
+              <div><strong class="text-slate-800">Metode:</strong> Latihan Terbimbing & Diskusi</div>
+              <div><strong class="text-slate-800">Dimensi:</strong> Bernalar Kritis & Mandiri</div>
+            </div>
+          </div>
+          <div class="pt-1 flex items-center justify-center">
+            <a href="https://drive.google.com/file/d/1CKV3_a_LfoTy_5_0srPTS20tAAlWwn8_/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="p-2 bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-all inline-block">
+              <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https%3A%2F%2Fdrive.google.com%2Ffile%2Fd%2F1CKV3_a_LfoTy_5_0srPTS20tAAlWwn8_%2Fview%3Fusp%3Ddrive_link" alt="QR Code" class="w-28 h-28 object-contain">
+            </a>
+          </div>
+        </div>
+        <div class="lg:col-span-5 bg-white rounded-3xl p-3 md:p-4 border border-slate-200/80 shadow-sm flex flex-col justify-between">
+          <span class="text-xs font-extrabold text-slate-700 mb-2 block">Pratinjau Dokumen Perangkat</span>
+          <div class="w-full h-[300px] md:h-[340px] rounded-2xl overflow-hidden border border-slate-200 bg-slate-100 relative">
+            <iframe src="https://drive.google.com/file/d/1CKV3_a_LfoTy_5_0srPTS20tAAlWwn8_/preview" class="w-full h-full border-0" allow="autoplay"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= SIKLUS 3 - PERTEMUAN 1 ================= -->
+    <div id="item-s3-p1" class="artifak-item space-y-5 hidden">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch">
+        <div class="lg:col-span-7 bg-white rounded-3xl p-5 md:p-6 border border-slate-200/80 shadow-sm flex flex-col justify-between space-y-4">
+          <div class="space-y-3">
+            <div class="flex flex-wrap items-center gap-2">
+              <span class="bg-emerald-100 text-emerald-800 text-[11px] font-bold px-2.5 py-0.5 rounded-md">IPAS</span>
+              <span class="bg-slate-100 text-slate-700 text-[11px] font-bold px-2.5 py-0.5 rounded-md">Kelas III / Fase B</span>
+              <span class="bg-blue-100 text-blue-800 text-[11px] font-bold px-2.5 py-0.5 rounded-md">2 JP (2 x 35 Menit)</span>
+            </div>
+            <div>
+              <h2 class="text-xl font-extrabold text-slate-800">IPAS — Siklus Mandiri 3</h2>
+              <p class="text-xs md:text-sm font-semibold text-blue-700 mt-0.5">Pertemuan 1</p>
+            </div>
+            <p class="text-xs md:text-sm text-slate-600 leading-relaxed">Rencana Pembelajaran Mendalam (RPM) IPAS Siklus Mandiri 3 Pertemuan 1 mengintegrasikan penyelidikan kelompok interaktif.</p>
+            <div class="bg-slate-50 p-3 rounded-2xl border border-slate-100 text-xs text-slate-600 grid grid-cols-2 gap-2">
+              <div><strong class="text-slate-800">Model:</strong> Problem Based Learning</div>
+              <div><strong class="text-slate-800">Pendekatan:</strong> Deep Learning</div>
+              <div><strong class="text-slate-800">Metode:</strong> Penyelidikan & Diskusi</div>
+              <div><strong class="text-slate-800">Dimensi:</strong> Gotong Royong & Bernalar Kritis</div>
+            </div>
+          </div>
+          <div class="pt-1 flex items-center justify-center">
+            <a href="https://drive.google.com/file/d/1h0OEjQpNrcbbz_q1f0ikRFoEQBrCMuSi/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="p-2 bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-all inline-block">
+              <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https%3A%2F%2Fdrive.google.com%2Ffile%2Fd%2F1h0OEjQpNrcbbz_q1f0ikRFoEQBrCMuSi%2Fview%3Fusp%3Ddrive_link" alt="QR Code" class="w-28 h-28 object-contain">
+            </a>
+          </div>
+        </div>
+        <div class="lg:col-span-5 bg-white rounded-3xl p-3 md:p-4 border border-slate-200/80 shadow-sm flex flex-col justify-between">
+          <span class="text-xs font-extrabold text-slate-700 mb-2 block">Pratinjau Dokumen Perangkat</span>
+          <div class="w-full h-[300px] md:h-[340px] rounded-2xl overflow-hidden border border-slate-200 bg-slate-100 relative">
+            <iframe src="https://drive.google.com/file/d/1h0OEjQpNrcbbz_q1f0ikRFoEQBrCMuSi/preview" class="w-full h-full border-0" allow="autoplay"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= SIKLUS 3 - PERTEMUAN 2 ================= -->
+    <div id="item-s3-p2" class="artifak-item space-y-5 hidden">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch">
+        <div class="lg:col-span-7 bg-white rounded-3xl p-5 md:p-6 border border-slate-200/80 shadow-sm flex flex-col justify-between space-y-4">
+          <div class="space-y-3">
+            <div class="flex flex-wrap items-center gap-2">
+              <span class="bg-emerald-100 text-emerald-800 text-[11px] font-bold px-2.5 py-0.5 rounded-md">Matematika</span>
+              <span class="bg-slate-100 text-slate-700 text-[11px] font-bold px-2.5 py-0.5 rounded-md">Kelas III / Fase B</span>
+              <span class="bg-blue-100 text-blue-800 text-[11px] font-bold px-2.5 py-0.5 rounded-md">2 JP (2 x 35 Menit)</span>
+            </div>
+            <div>
+              <h2 class="text-xl font-extrabold text-slate-800">Matematika — Siklus Mandiri 3</h2>
+              <p class="text-xs md:text-sm font-semibold text-blue-700 mt-0.5">Pertemuan 2</p>
+            </div>
+            <p class="text-xs md:text-sm text-slate-600 leading-relaxed">Rencana Pembelajaran Mendalam (RPM) Matematika Siklus Mandiri 3 Pertemuan 2 berfokus pada penguatan penalaran operasional.</p>
+            <div class="bg-slate-50 p-3 rounded-2xl border border-slate-100 text-xs text-slate-600 grid grid-cols-2 gap-2">
+              <div><strong class="text-slate-800">Model:</strong> Problem Based Learning</div>
+              <div><strong class="text-slate-800">Pendekatan:</strong> Deep Learning</div>
+              <div><strong class="text-slate-800">Metode:</strong> Praktik & Tanya Jawab</div>
+              <div><strong class="text-slate-800">Dimensi:</strong> Bernalar Kritis & Mandiri</div>
+            </div>
+          </div>
+          <div class="pt-1 flex items-center justify-center">
+            <a href="https://drive.google.com/file/d/1ALdv1eo3_11MfeUi4Z7hHa1ZbqZPwdo9/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="p-2 bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-all inline-block">
+              <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https%3A%2F%2Fdrive.google.com%2Ffile%2Fd%2F1ALdv1eo3_11MfeUi4Z7hHa1ZbqZPwdo9%2Fview%3Fusp%3Ddrive_link" alt="QR Code" class="w-28 h-28 object-contain">
+            </a>
+          </div>
+        </div>
+        <div class="lg:col-span-5 bg-white rounded-3xl p-3 md:p-4 border border-slate-200/80 shadow-sm flex flex-col justify-between">
+          <span class="text-xs font-extrabold text-slate-700 mb-2 block">Pratinjau Dokumen Perangkat</span>
+          <div class="w-full h-[300px] md:h-[340px] rounded-2xl overflow-hidden border border-slate-200 bg-slate-100 relative">
+            <iframe src="https://drive.google.com/file/d/1ALdv1eo3_11MfeUi4Z7hHa1ZbqZPwdo9/preview" class="w-full h-full border-0" allow="autoplay"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= SIKLUS 3 - PERTEMUAN 3 ================= -->
+    <div id="item-s3-p3" class="artifak-item space-y-5 hidden">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch">
+        <div class="lg:col-span-7 bg-white rounded-3xl p-5 md:p-6 border border-slate-200/80 shadow-sm flex flex-col justify-between space-y-4">
+          <div class="space-y-3">
+            <div class="flex flex-wrap items-center gap-2">
+              <span class="bg-emerald-100 text-emerald-800 text-[11px] font-bold px-2.5 py-0.5 rounded-md">Matematika</span>
+              <span class="bg-slate-100 text-slate-700 text-[11px] font-bold px-2.5 py-0.5 rounded-md">Kelas III / Fase B</span>
+              <span class="bg-blue-100 text-blue-800 text-[11px] font-bold px-2.5 py-0.5 rounded-md">2 JP (2 x 35 Menit)</span>
+            </div>
+            <div>
+              <h2 class="text-xl font-extrabold text-slate-800">Matematika — Siklus Mandiri 3</h2>
+              <p class="text-xs md:text-sm font-semibold text-blue-700 mt-0.5">Pertemuan 3</p>
+            </div>
+            <p class="text-xs md:text-sm text-slate-600 leading-relaxed">Rencana Pembelajaran Mendalam (RPM) Matematika Siklus Mandiri 3 Pertemuan 3 yang mendalamkan penerapan dalam kehidupan sehari-hari.</p>
+            <div class="bg-slate-50 p-3 rounded-2xl border border-slate-100 text-xs text-slate-600 grid grid-cols-2 gap-2">
+              <div><strong class="text-slate-800">Model:</strong> Problem Based Learning</div>
+              <div><strong class="text-slate-800">Pendekatan:</strong> Deep Learning</div>
+              <div><strong class="text-slate-800">Metode:</strong> Studi Kasus & Presentasi</div>
+              <div><strong class="text-slate-800">Dimensi:</strong> Bernalar Kritis & Gotong Royong</div>
+            </div>
+          </div>
+          <div class="pt-1 flex items-center justify-center">
+            <a href="https://drive.google.com/file/d/1K6bloYOB2gIEoKTUT-5kIqVOKHnmZ-OL/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="p-2 bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-all inline-block">
+              <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https%3A%2F%2Fdrive.google.com%2Ffile%2Fd%2F1K6bloYOB2gIEoKTUT-5kIqVOKHnmZ-OL%2Fview%3Fusp%3Ddrive_link" alt="QR Code" class="w-28 h-28 object-contain">
+            </a>
+          </div>
+        </div>
+        <div class="lg:col-span-5 bg-white rounded-3xl p-3 md:p-4 border border-slate-200/80 shadow-sm flex flex-col justify-between">
+          <span class="text-xs font-extrabold text-slate-700 mb-2 block">Pratinjau Dokumen Perangkat</span>
+          <div class="w-full h-[300px] md:h-[340px] rounded-2xl overflow-hidden border border-slate-200 bg-slate-100 relative">
+            <iframe src="https://drive.google.com/file/d/1K6bloYOB2gIEoKTUT-5kIqVOKHnmZ-OL/preview" class="w-full h-full border-0" allow="autoplay"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= SIKLUS 4 - PERTEMUAN 1 ================= -->
+    <div id="item-s4-p1" class="artifak-item space-y-5 hidden">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch">
+        <div class="lg:col-span-7 bg-white rounded-3xl p-5 md:p-6 border border-slate-200/80 shadow-sm flex flex-col justify-between space-y-4">
+          <div class="space-y-3">
+            <div class="flex flex-wrap items-center gap-2">
+              <span class="bg-emerald-100 text-emerald-800 text-[11px] font-bold px-2.5 py-0.5 rounded-md">IPAS</span>
+              <span class="bg-slate-100 text-slate-700 text-[11px] font-bold px-2.5 py-0.5 rounded-md">Kelas III / Fase B</span>
+              <span class="bg-blue-100 text-blue-800 text-[11px] font-bold px-2.5 py-0.5 rounded-md">2 JP (2 x 35 Menit)</span>
+            </div>
+            <div>
+              <h2 class="text-xl font-extrabold text-slate-800">IPAS — Siklus Mandiri 4</h2>
+              <p class="text-xs md:text-sm font-semibold text-blue-700 mt-0.5">Pertemuan 1</p>
+            </div>
+            <p class="text-xs md:text-sm text-slate-600 leading-relaxed">Rencana Pembelajaran Mendalam (RPM) IPAS Siklus Mandiri 4 Pertemuan 1 diawali dengan orientasi masalah kontekstual lingkungan.</p>
+            <div class="bg-slate-50 p-3 rounded-2xl border border-slate-100 text-xs text-slate-600 grid grid-cols-2 gap-2">
+              <div><strong class="text-slate-800">Model:</strong> Problem Based Learning</div>
+              <div><strong class="text-slate-800">Pendekatan:</strong> Deep Learning</div>
+              <div><strong class="text-slate-800">Metode:</strong> Diskusi & Refleksi</div>
+              <div><strong class="text-slate-800">Dimensi:</strong> Bernalar Kritis & Kreatif</div>
+            </div>
+          </div>
+          <div class="pt-1 flex items-center justify-center">
+            <a href="https://drive.google.com/file/d/1jy6ehcPdLJ6GOn6ci1dPlrjWDtFYk3Jl/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="p-2 bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-all inline-block">
+              <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https%3A%2F%2Fdrive.google.com%2Ffile%2Fd%2F1jy6ehcPdLJ6GOn6ci1dPlrjWDtFYk3Jl%2Fview%3Fusp%3Ddrive_link" alt="QR Code" class="w-28 h-28 object-contain">
+            </a>
+          </div>
+        </div>
+        <div class="lg:col-span-5 bg-white rounded-3xl p-3 md:p-4 border border-slate-200/80 shadow-sm flex flex-col justify-between">
+          <span class="text-xs font-extrabold text-slate-700 mb-2 block">Pratinjau Dokumen Perangkat</span>
+          <div class="w-full h-[300px] md:h-[340px] rounded-2xl overflow-hidden border border-slate-200 bg-slate-100 relative">
+            <iframe src="https://drive.google.com/file/d/1jy6ehcPdLJ6GOn6ci1dPlrjWDtFYk3Jl/preview" class="w-full h-full border-0" allow="autoplay"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= SIKLUS 4 - PERTEMUAN 2 ================= -->
+    <div id="item-s4-p2" class="artifak-item space-y-5 hidden">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch">
+        <div class="lg:col-span-7 bg-white rounded-3xl p-5 md:p-6 border border-slate-200/80 shadow-sm flex flex-col justify-between space-y-4">
+          <div class="space-y-3">
+            <div class="flex flex-wrap items-center gap-2">
+              <span class="bg-emerald-100 text-emerald-800 text-[11px] font-bold px-2.5 py-0.5 rounded-md">Matematika</span>
+              <span class="bg-slate-100 text-slate-700 text-[11px] font-bold px-2.5 py-0.5 rounded-md">Kelas III / Fase B</span>
+              <span class="bg-blue-100 text-blue-800 text-[11px] font-bold px-2.5 py-0.5 rounded-md">2 JP (2 x 35 Menit)</span>
+            </div>
+            <div>
+              <h2 class="text-xl font-extrabold text-slate-800">Matematika — Siklus Mandiri 4</h2>
+              <p class="text-xs md:text-sm font-semibold text-blue-700 mt-0.5">Pertemuan 2</p>
+            </div>
+            <p class="text-xs md:text-sm text-slate-600 leading-relaxed">Rencana Pembelajaran Mendalam (RPM) Matematika Siklus Mandiri 4 Pertemuan 2 berfokus pada ketrampilan manipulatif dan alat bantu.</p>
+            <div class="bg-slate-50 p-3 rounded-2xl border border-slate-100 text-xs text-slate-600 grid grid-cols-2 gap-2">
+              <div><strong class="text-slate-800">Model:</strong> Problem Based Learning</div>
+              <div><strong class="text-slate-800">Pendekatan:</strong> Deep Learning</div>
+              <div><strong class="text-slate-800">Metode:</strong> Praktik Langsung & Problem Solving</div>
+              <div><strong class="text-slate-800">Dimensi:</strong> Bernalar Kritis & Mandiri</div>
+            </div>
+          </div>
+          <div class="pt-1 flex items-center justify-center">
+            <a href="https://drive.google.com/file/d/1Dut6_pjGXT7dqXYec0GGTzQ7RVjPVFqH/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="p-2 bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-all inline-block">
+              <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https%3A%2F%2Fdrive.google.com%2Ffile%2Fd%2F1Dut6_pjGXT7dqXYec0GGTzQ7RVjPVFqH%2Fview%3Fusp%3Ddrive_link" alt="QR Code" class="w-28 h-28 object-contain">
+            </a>
+          </div>
+        </div>
+        <div class="lg:col-span-5 bg-white rounded-3xl p-3 md:p-4 border border-slate-200/80 shadow-sm flex flex-col justify-between">
+          <span class="text-xs font-extrabold text-slate-700 mb-2 block">Pratinjau Dokumen Perangkat</span>
+          <div class="w-full h-[300px] md:h-[340px] rounded-2xl overflow-hidden border border-slate-200 bg-slate-100 relative">
+            <iframe src="https://drive.google.com/file/d/1Dut6_pjGXT7dqXYec0GGTzQ7RVjPVFqH/preview" class="w-full h-full border-0" allow="autoplay"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= SIKLUS 4 - PERTEMUAN 3 ================= -->
+    <div id="item-s4-p3" class="artifak-item space-y-5 hidden">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch">
+        <div class="lg:col-span-7 bg-white rounded-3xl p-5 md:p-6 border border-slate-200/80 shadow-sm flex flex-col justify-between space-y-4">
+          <div class="space-y-3">
+            <div class="flex flex-wrap items-center gap-2">
+              <span class="bg-emerald-100 text-emerald-800 text-[11px] font-bold px-2.5 py-0.5 rounded-md">IPAS</span>
+              <span class="bg-slate-100 text-slate-700 text-[11px] font-bold px-2.5 py-0.5 rounded-md">Kelas III / Fase B</span>
+              <span class="bg-blue-100 text-blue-800 text-[11px] font-bold px-2.5 py-0.5 rounded-md">2 JP (2 x 35 Menit)</span>
+            </div>
+            <div>
+              <h2 class="text-xl font-extrabold text-slate-800">IPAS — Siklus Mandiri 4</h2>
+              <p class="text-xs md:text-sm font-semibold text-blue-700 mt-0.5">Pertemuan 3</p>
+            </div>
+            <p class="text-xs md:text-sm text-slate-600 leading-relaxed">Rencana Pembelajaran Mendalam (RPM) IPAS Siklus Mandiri 4 Pertemuan 3 sebagai puncak sintesis dan evaluasi pembelajaran.</p>
+            <div class="bg-slate-50 p-3 rounded-2xl border border-slate-100 text-xs text-slate-600 grid grid-cols-2 gap-2">
+              <div><strong class="text-slate-800">Model:</strong> Problem Based Learning</div>
+              <div><strong class="text-slate-800">Pendekatan:</strong> Deep Learning</div>
+              <div><strong class="text-slate-800">Metode:</strong> Penyajian Hasil & Evaluasi</div>
+              <div><strong class="text-slate-800">Dimensi:</strong> Bernalar Kritis & Gotong Royong</div>
+            </div>
+          </div>
+          <div class="pt-1 flex items-center justify-center">
+            <a href="https://drive.google.com/file/d/14pfZDWQdDt4i3hl3-QM_ZOrjP6FFM3Ja/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="p-2 bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-all inline-block">
+              <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https%3A%2F%2Fdrive.google.com%2Ffile%2Fd%2F14pfZDWQdDt4i3hl3-QM_ZOrjP6FFM3Ja%2Fview%3Fusp%3Ddrive_link" alt="QR Code" class="w-28 h-28 object-contain">
+            </a>
+          </div>
+        </div>
+        <div class="lg:col-span-5 bg-white rounded-3xl p-3 md:p-4 border border-slate-200/80 shadow-sm flex flex-col justify-between">
+          <span class="text-xs font-extrabold text-slate-700 mb-2 block">Pratinjau Dokumen Perangkat</span>
+          <div class="w-full h-[300px] md:h-[340px] rounded-2xl overflow-hidden border border-slate-200 bg-slate-100 relative">
+            <iframe src="https://drive.google.com/file/d/14pfZDWQdDt4i3hl3-QM_ZOrjP6FFM3Ja/preview" class="w-full h-full border-0" allow="autoplay"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ANALISIS ARTIFAK (BERSAMA/DINAMIS) -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-5">
       <div class="bg-white rounded-2xl p-4 md:p-5 border border-slate-200/80 shadow-sm space-y-1">
         <h3 class="font-extrabold text-xs md:text-sm text-blue-700">1. Analisis Perencanaan & Kesesuaian Teori</h3>
-        <p id="analisis-perencanaan" class="text-xs text-slate-600 leading-relaxed">
+        <p class="text-xs text-slate-600 leading-relaxed">
           Perancangan materi dan langkah pembelajaran disesuaikan dengan level kemampuan awal peserta didik hasil asesmen diagnostik, serta mengintegrasikan teori belajar konstruktivisme.
         </p>
       </div>
       <div class="bg-white rounded-2xl p-4 md:p-5 border border-slate-200/80 shadow-sm space-y-1">
         <h3 class="font-extrabold text-xs md:text-sm text-emerald-700">2. Analisis Media, LKPD & Asesmen</h3>
-        <p id="analisis-media" class="text-xs text-slate-600 leading-relaxed">
+        <p class="text-xs text-slate-600 leading-relaxed">
           Media konkret dan LKPD interaktif memandu peserta didik melakukan penyelidikan saintifik secara berpasangan/kelompok untuk memperkuat pemahaman konsep mendalam.
         </p>
       </div>
     </div>
 
     <!-- BUKTI ARTIFAK PEMBELAJARAN (TEMPAT FOTO DOKUMENTASI) -->
-    <div class="bg-white rounded-3xl p-5 md:p-6 border border-slate-200/80 shadow-sm space-y-4">
+    <div class="bg-white rounded-3xl p-5 md:p-6 border border-slate-200/80 shadow-sm space-y-4 mt-5">
       <div class="flex items-center justify-between border-b border-slate-100 pb-3">
         <div class="flex items-center gap-2">
           <div class="p-2 bg-blue-50 text-blue-600 rounded-xl">
@@ -131,7 +420,6 @@
       <!-- GRID FOTO PLACEHOLDER -->
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 md:gap-4">
         <div class="group relative bg-slate-50 rounded-2xl border-2 border-dashed border-slate-200 p-4 min-h-[160px] md:min-h-[180px] flex flex-col items-center justify-center text-center hover:border-blue-400 transition-all overflow-hidden">
-          <img id="foto-bukti-1" src="" class="hidden absolute inset-0 w-full h-full object-cover rounded-2xl" alt="Bukti 1">
           <div class="space-y-1 z-10">
             <div class="w-8 h-8 mx-auto rounded-full bg-slate-200 flex items-center justify-center text-slate-500">
               <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
@@ -142,7 +430,6 @@
         </div>
 
         <div class="group relative bg-slate-50 rounded-2xl border-2 border-dashed border-slate-200 p-4 min-h-[160px] md:min-h-[180px] flex flex-col items-center justify-center text-center hover:border-blue-400 transition-all overflow-hidden">
-          <img id="foto-bukti-2" src="" class="hidden absolute inset-0 w-full h-full object-cover rounded-2xl" alt="Bukti 2">
           <div class="space-y-1 z-10">
             <div class="w-8 h-8 mx-auto rounded-full bg-slate-200 flex items-center justify-center text-slate-500">
               <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
@@ -153,7 +440,6 @@
         </div>
 
         <div class="group relative bg-slate-50 rounded-2xl border-2 border-dashed border-slate-200 p-4 min-h-[160px] md:min-h-[180px] flex flex-col items-center justify-center text-center hover:border-blue-400 transition-all overflow-hidden">
-          <img id="foto-bukti-3" src="" class="hidden absolute inset-0 w-full h-full object-cover rounded-2xl" alt="Bukti 3">
           <div class="space-y-1 z-10">
             <div class="w-8 h-8 mx-auto rounded-full bg-slate-200 flex items-center justify-center text-slate-500">
               <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
@@ -169,226 +455,64 @@
 
 </div>
 
-<!-- SCRIPT LOGIKA SELEKSI SIKLUS & PERTEMUAN -->
+<!-- SCRIPT PENGATUR SWITCH KONTEN SIKLUS & PERTEMUAN -->
 <script>
-  function initArtifakPembelajaran() {
-    let currentSiklus = 2;
-    let currentPertemuan = 1;
+  let activeSiklus = 2;
+  let activePertemuan = 1;
 
-    const dataPembelajaran = {
-      2: {
-        1: {
-          mapel: "Matematika", kelas: "Kelas III / Fase B", alokasi: "2 JP (2 x 35 Menit)",
-          bab: "Matematika - Siklus Mandiri 2", topik: "Pertemuan 1",
-          deskripsi: "Rencana Pembelajaran Mendalam (RPM) Matematika Siklus Mandiri 2 Pertemuan 1 yang dirancang untuk memfasilitasi pemahaman kontekstual murid.",
-          model: "Problem Based Learning", pendekatan: "Deep Learning", metode: "Diskusi & Problem Solving", dimensi: "Bernalar Kritis & Gotong Royong",
-          linkDrive: "https://drive.google.com/file/d/1RNrWRrwes2ZmnibOTP_-mx4O9o1APGdK/view?usp=drive_link",
-          analisis1: "Sintaks pembelajaran memadukan pemecahan masalah kontekstual dan keterlibatan aktif peserta didik.",
-          analisis2: "LKPD dan media dirancang untuk memperkuat keterrampilan bernalar kritis dan kerja sama kelompok."
-        },
-        2: {
-          mapel: "IPAS", kelas: "Kelas III / Fase B", alokasi: "2 JP (2 x 35 Menit)",
-          bab: "IPAS - Siklus Mandiri 2", topik: "Pertemuan 2",
-          deskripsi: "Rencana Pembelajaran Mendalam (RPM) IPAS Siklus Mandiri 2 Pertemuan 2 yang menekankan eksplorasi dan pengamatan langsung.",
-          model: "Problem Based Learning", pendekatan: "Deep Learning", metode: "Observasi & Eksperimen", dimensi: "Bernalar Kritis & Gotong Royong",
-          linkDrive: "https://drive.google.com/file/d/1fBUBv8WaEqxRas-oOuVSjBtH2K33VJrM/view?usp=drive_link",
-          analisis1: "Pendekatan eksploratif memandu murid memahami fenomena alam secara saintifik.",
-          analisis2: "Penggunaan media konkret mempermudah pemahaman konsep saintifik yang dipelajari."
-        },
-        3: {
-          mapel: "Matematika", kelas: "Kelas III / Fase B", alokasi: "2 JP (2 x 35 Menit)",
-          bab: "Matematika - Siklus Mandiri 2", topik: "Pertemuan 3",
-          deskripsi: "Rencana Pembelajaran Mendalam (RPM) Matematika Siklus Mandiri 2 Pertemuan 3 yang berfokus pada pemantapan konsep dan latihan terbimbing.",
-          model: "Problem Based Learning", pendekatan: "Deep Learning", metode: "Latihan Terbimbing & Diskusi", dimensi: "Bernalar Kritis & Mandiri",
-          linkDrive: "https://drive.google.com/file/d/1CKV3_a_LfoTy_5_0srPTS20tAAlWwn8_/view?usp=drive_link",
-          analisis1: "Strategi diferensiasi proses diterapkan untuk mengakomodasi ragam kesiapan belajar murid.",
-          analisis2: "Asesmen formatif digunakan secara kontinu untuk memantau kemajuan pemahaman murid."
-        }
-      },
-      3: {
-        1: {
-          mapel: "IPAS", kelas: "Kelas III / Fase B", alokasi: "2 JP (2 x 35 Menit)",
-          bab: "IPAS - Siklus Mandiri 3", topik: "Pertemuan 1",
-          deskripsi: "Rencana Pembelajaran Mendalam (RPM) IPAS Siklus Mandiri 3 Pertemuan 1 mengintegrasikan penyelidikan kelompok interaktif.",
-          model: "Problem Based Learning", pendekatan: "Deep Learning", metode: "Penyelidikan & Diskusi", dimensi: "Gotong Royong & Bernalar Kritis",
-          linkDrive: "https://drive.google.com/file/d/1h0OEjQpNrcbbz_q1f0ikRFoEQBrCMuSi/view?usp=drive_link",
-          analisis1: "Pembelajaran berbasis masalah merangsang ketertarikan murid terhadap materi IPAS.",
-          analisis2: "LKPD terstruktur membantu alur kerja kelompok berjalan secara sistematis."
-        },
-        2: {
-          mapel: "Matematika", kelas: "Kelas III / Fase B", alokasi: "2 JP (2 x 35 Menit)",
-          bab: "Matematika - Siklus Mandiri 3", topik: "Pertemuan 2",
-          deskripsi: "Rencana Pembelajaran Mendalam (RPM) Matematika Siklus Mandiri 3 Pertemuan 2 berfokus pada penguatan penalaran operasional.",
-          model: "Problem Based Learning", pendekatan: "Deep Learning", metode: "Praktik & Tanya Jawab", dimensi: "Bernalar Kritis & Mandiri",
-          linkDrive: "https://drive.google.com/file/d/1ALdv1eo3_11MfeUi4Z7hHa1ZbqZPwdo9/view?usp=drive_link",
-          analisis1: "Penerapan perancangan bertahap membantu mengurangi tingkat kesulitan abstrak pada matematika.",
-          analisis2: "Instrumen asesmen mengukur kemampuan pemecahan masalah serta ketepatan hasil."
-        },
-        3: {
-          mapel: "Matematika", kelas: "Kelas III / Fase B", alokasi: "2 JP (2 x 35 Menit)",
-          bab: "Matematika - Siklus Mandiri 3", topik: "Pertemuan 3",
-          deskripsi: "Rencana Pembelajaran Mendalam (RPM) Matematika Siklus Mandiri 3 Pertemuan 3 yang mendalamkan penerapan dalam kehidupan sehari-hari.",
-          model: "Problem Based Learning", pendekatan: "Deep Learning", metode: "Studi Kasus & Presentasi", dimensi: "Bernalar Kritis & Gotong Royong",
-          linkDrive: "https://drive.google.com/file/d/1K6bloYOB2gIEoKTUT-5kIqVOKHnmZ-OL/view?usp=drive_link",
-          analisis1: "Keterkaitan materi dengan kehidupan nyata meningkatkan kebermaknaan belajar murid.",
-          analisis2: "Presentasi kelompok melatih komunikasi matematis dan rasa percaya diri murid."
-        }
-      },
-      4: {
-        1: {
-          mapel: "IPAS", kelas: "Kelas III / Fase B", alokasi: "2 JP (2 x 35 Menit)",
-          bab: "IPAS - Siklus Mandiri 4", topik: "Pertemuan 1",
-          deskripsi: "Rencana Pembelajaran Mendalam (RPM) IPAS Siklus Mandiri 4 Pertemuan 1 diawali dengan orientasi masalah kontekstual lingkungan.",
-          model: "Problem Based Learning", pendekatan: "Deep Learning", metode: "Diskusi & Refleksi", dimensi: "Bernalar Kritis & Kreatif",
-          linkDrive: "https://drive.google.com/file/d/1jy6ehcPdLJ6GOn6ci1dPlrjWDtFYk3Jl/view?usp=drive_link",
-          analisis1: "Penggunaan isu lingkungan lokal membangkitkan pemikiran kritis dan empati murid.",
-          analisis2: "Asesmen proses difokuskan pada keaktifan murid selama kegiatan penemuan."
-        },
-        2: {
-          mapel: "Matematika", kelas: "Kelas III / Fase B", alokasi: "2 JP (2 x 35 Menit)",
-          bab: "Matematika - Siklus Mandiri 4", topik: "Pertemuan 2",
-          deskripsi: "Rencana Pembelajaran Mendalam (RPM) Matematika Siklus Mandiri 4 Pertemuan 2 berfokus pada ketrampilan manipulatif dan alat bantu.",
-          model: "Problem Based Learning", pendekatan: "Deep Learning", metode: "Praktik Langsung & Problem Solving", dimensi: "Bernalar Kritis & Mandiri",
-          linkDrive: "https://drive.google.com/file/d/1Dut6_pjGXT7dqXYec0GGTzQ7RVjPVFqH/view?usp=drive_link",
-          analisis1: "Praktik langsung meningkatkan retensi ingatan jangka panjang peserta didik.",
-          analisis2: "Rubrik unjuk kerja memberikan umpan balik yang konstruktif dan terukur."
-        },
-        3: {
-          mapel: "IPAS", kelas: "Kelas III / Fase B", alokasi: "2 JP (2 x 35 Menit)",
-          bab: "IPAS - Siklus Mandiri 4", topik: "Pertemuan 3",
-          deskripsi: "Rencana Pembelajaran Mendalam (RPM) IPAS Siklus Mandiri 4 Pertemuan 3 sebagai puncak sintesis dan evaluasi pembelajaran.",
-          model: "Problem Based Learning", pendekatan: "Deep Learning", metode: "Penyajian Hasil & Evaluasi", dimensi: "Bernalar Kritis & Gotong Royong",
-          linkDrive: "https://drive.google.com/file/d/14pfZDWQdDt4i3hl3-QM_ZOrjP6FFM3Ja/view?usp=drive_link",
-          analisis1: "Refleksi menyeluruh membantu murid mengkonsolidasikan seluruh pengetahuan yang diperoleh.",
-          analisis2: "Evaluasi sumatif akhir siklus mengukur ketercapaian tujuan pembelajaran secara holistik."
-        }
-      }
-    };
+  function updateView() {
+    // Sembunyikan semua konten pertemuan
+    const items = document.querySelectorAll('.artifak-item');
+    items.forEach(el => el.classList.add('hidden'));
 
-    function getDrivePreviewUrl(url) {
-      if (!url) return '';
-      const match = url.match(/\/d\/([a-zA-Z0-9_-]+)/);
-      if (match && match[1]) {
-        return `https://drive.google.com/file/d/${match[1]}/preview`;
-      }
-      return url;
+    // Tampilkan elemen aktif
+    const activeEl = document.getElementById(`item-s${activeSiklus}-p${activePertemuan}`);
+    if (activeEl) {
+      activeEl.classList.remove('hidden');
     }
 
-    function renderDataContent() {
-      const data = dataPembelajaran[currentSiklus] && dataPembelajaran[currentSiklus][currentPertemuan];
-      if (!data) return;
-
-      // Update Tampilan Tombol Siklus
-      [2, 3, 4].forEach(s => {
-        const btn = document.getElementById(`btn-siklus-${s}`);
-        if (btn) {
-          if (s === currentSiklus) {
-            btn.className = "btn-siklus flex-1 md:flex-none py-1.5 px-4 rounded-lg text-xs font-extrabold transition-all duration-200 cursor-pointer bg-white text-blue-700 shadow-xs border border-slate-200/60";
-          } else {
-            btn.className = "btn-siklus flex-1 md:flex-none py-1.5 px-4 rounded-lg text-xs font-bold transition-all duration-200 cursor-pointer text-slate-500 hover:text-slate-800 hover:bg-white/60";
-          }
-        }
-      });
-
-      // Update Tampilan Tombol Pertemuan
-      [1, 2, 3].forEach(p => {
-        const btn = document.getElementById(`btn-p${p}`);
-        if (btn) {
-          if (p === currentPertemuan) {
-            btn.className = "btn-pertemuan flex-1 md:flex-none py-1.5 px-4 rounded-lg text-xs font-extrabold transition-all duration-200 cursor-pointer bg-blue-600 text-white shadow-xs";
-          } else {
-            btn.className = "btn-pertemuan flex-1 md:flex-none py-1.5 px-4 rounded-lg text-xs font-semibold transition-all duration-200 cursor-pointer text-slate-600 hover:text-slate-900 hover:bg-white/60";
-          }
-        }
-      });
-
-      // Update Teks & Metadata
-      const badgeMapel = document.getElementById('badge-mapel');
-      if (badgeMapel) badgeMapel.textContent = data.mapel;
-
-      const badgeKelas = document.getElementById('badge-kelas');
-      if (badgeKelas) badgeKelas.textContent = data.kelas;
-
-      const badgeAlokasi = document.getElementById('badge-alokasi');
-      if (badgeAlokasi) badgeAlokasi.textContent = data.alokasi;
-
-      const textJudulBab = document.getElementById('text-judul-bab');
-      if (textJudulBab) textJudulBab.textContent = data.bab;
-
-      const textTopik = document.getElementById('text-topik');
-      if (textTopik) textTopik.textContent = data.topik;
-
-      const textDeskripsi = document.getElementById('text-deskripsi');
-      if (textDeskripsi) textDeskripsi.textContent = data.deskripsi;
-
-      const metaModel = document.getElementById('meta-model');
-      if (metaModel) metaModel.textContent = data.model;
-
-      const metaPendekatan = document.getElementById('meta-pendekatan');
-      if (metaPendekatan) metaPendekatan.textContent = data.pendekatan;
-
-      const metaMetode = document.getElementById('meta-metode');
-      if (metaMetode) metaMetode.textContent = data.metode;
-
-      const metaDimensi = document.getElementById('meta-dimensi');
-      if (metaDimensi) metaDimensi.textContent = data.dimensi;
-
-      // Update Link & QR Code
-      const linkDrive = document.getElementById('link-drive-rpm');
-      if (linkDrive) linkDrive.href = data.linkDrive;
-
-      const qrCode = document.getElementById('qr-code-rpm');
-      if (qrCode) {
-        const encodedUrl = encodeURIComponent(data.linkDrive);
-        qrCode.src = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodedUrl}`;
-      }
-
-      // Update Preview PDF
-      const iframePreview = document.getElementById('iframe-preview-rpm');
-      if (iframePreview) {
-        iframePreview.src = getDrivePreviewUrl(data.linkDrive);
-      }
-
-      // Update Analisis
-      const analisis1 = document.getElementById('analisis-perencanaan');
-      if (analisis1) analisis1.textContent = data.analisis1;
-
-      const analisis2 = document.getElementById('analisis-media');
-      if (analisis2) analisis2.textContent = data.analisis2;
-
-      const labelBukti = document.getElementById('label-bukti-pertemuan');
-      if (labelBukti) labelBukti.textContent = `Siklus ${currentSiklus} — Pertemuan ${currentPertemuan}`;
-    }
-
-    // Delegation Event Klik Tombol Siklus
+    // Update style tombol Siklus
     [2, 3, 4].forEach(s => {
-      const btn = document.getElementById(`btn-siklus-${s}`);
+      const btn = document.getElementById(`btn-s${s}`);
       if (btn) {
-        btn.onclick = function() {
-          currentSiklus = s;
-          currentPertemuan = 1;
-          renderDataContent();
-        };
+        if (s === activeSiklus) {
+          btn.className = "btn-siklus flex-1 md:flex-none py-1.5 px-4 rounded-lg text-xs font-extrabold transition-all cursor-pointer bg-white text-blue-700 shadow-xs border border-slate-200/60";
+        } else {
+          btn.className = "btn-siklus flex-1 md:flex-none py-1.5 px-4 rounded-lg text-xs font-bold transition-all cursor-pointer text-slate-500 hover:text-slate-800 hover:bg-white/60";
+        }
       }
     });
 
-    // Delegation Event Klik Tombol Pertemuan
+    // Update style tombol Pertemuan
     [1, 2, 3].forEach(p => {
       const btn = document.getElementById(`btn-p${p}`);
       if (btn) {
-        btn.onclick = function() {
-          currentPertemuan = p;
-          renderDataContent();
-        };
+        if (p === activePertemuan) {
+          btn.className = "btn-pertemuan flex-1 md:flex-none py-1.5 px-4 rounded-lg text-xs font-extrabold transition-all cursor-pointer bg-blue-600 text-white shadow-xs";
+        } else {
+          btn.className = "btn-pertemuan flex-1 md:flex-none py-1.5 px-4 rounded-lg text-xs font-semibold transition-all cursor-pointer text-slate-600 hover:text-slate-900 hover:bg-white/60";
+        }
       }
     });
 
-    renderDataContent();
+    // Update label bukti foto
+    const labelBukti = document.getElementById('label-bukti-pertemuan');
+    if (labelBukti) {
+      labelBukti.textContent = `Siklus ${activeSiklus} — Pertemuan ${activePertemuan}`;
+    }
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initArtifakPembelajaran);
-  } else {
-    initArtifakPembelajaran();
+  function setSiklus(siklus) {
+    activeSiklus = siklus;
+    activePertemuan = 1; // reset ke P1 setiap kali ganti siklus
+    updateView();
   }
+
+  function setPertemuan(pertemuan) {
+    activePertemuan = pertemuan;
+    updateView();
+  }
+
+  // Jalankan saat pertama kali dimuat
+  updateView();
 </script>
