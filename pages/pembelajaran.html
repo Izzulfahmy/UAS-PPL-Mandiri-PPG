@@ -20,26 +20,26 @@
     
     <!-- DERET TOMBOL SIKLUS (SIKLUS 2 - 4) -->
     <div class="flex items-center gap-1.5 w-full md:w-auto bg-slate-100/80 p-1 rounded-xl">
-      <button type="button" id="btn-siklus-2" onclick="switchSiklus(2)" class="btn-siklus flex-1 md:flex-none py-1.5 px-4 rounded-lg text-xs font-extrabold transition-all duration-200 cursor-pointer bg-white text-blue-700 shadow-xs border border-slate-200/60">
+      <button type="button" id="btn-siklus-2" class="btn-siklus flex-1 md:flex-none py-1.5 px-4 rounded-lg text-xs font-extrabold transition-all duration-200 cursor-pointer bg-white text-blue-700 shadow-xs border border-slate-200/60">
         Siklus 2
       </button>
-      <button type="button" id="btn-siklus-3" onclick="switchSiklus(3)" class="btn-siklus flex-1 md:flex-none py-1.5 px-4 rounded-lg text-xs font-bold transition-all duration-200 cursor-pointer text-slate-500 hover:text-slate-800 hover:bg-white/60">
+      <button type="button" id="btn-siklus-3" class="btn-siklus flex-1 md:flex-none py-1.5 px-4 rounded-lg text-xs font-bold transition-all duration-200 cursor-pointer text-slate-500 hover:text-slate-800 hover:bg-white/60">
         Siklus 3
       </button>
-      <button type="button" id="btn-siklus-4" onclick="switchSiklus(4)" class="btn-siklus flex-1 md:flex-none py-1.5 px-4 rounded-lg text-xs font-bold transition-all duration-200 cursor-pointer text-slate-500 hover:text-slate-800 hover:bg-white/60">
+      <button type="button" id="btn-siklus-4" class="btn-siklus flex-1 md:flex-none py-1.5 px-4 rounded-lg text-xs font-bold transition-all duration-200 cursor-pointer text-slate-500 hover:text-slate-800 hover:bg-white/60">
         Siklus 4
       </button>
     </div>
 
     <!-- DERET TOMBOL PERTEMUAN (P1 - P3) -->
     <div class="flex items-center gap-1 bg-slate-100/80 p-1 rounded-xl w-full md:w-auto">
-      <button type="button" id="btn-p1" onclick="switchPertemuan(1)" class="btn-pertemuan flex-1 md:flex-none py-1.5 px-4 rounded-lg text-xs font-extrabold transition-all duration-200 cursor-pointer bg-blue-600 text-white shadow-xs">
+      <button type="button" id="btn-p1" class="btn-pertemuan flex-1 md:flex-none py-1.5 px-4 rounded-lg text-xs font-extrabold transition-all duration-200 cursor-pointer bg-blue-600 text-white shadow-xs">
         Pertemuan 1
       </button>
-      <button type="button" id="btn-p2" onclick="switchPertemuan(2)" class="btn-pertemuan flex-1 md:flex-none py-1.5 px-4 rounded-lg text-xs font-semibold transition-all duration-200 cursor-pointer text-slate-600 hover:text-slate-900 hover:bg-white/60">
+      <button type="button" id="btn-p2" class="btn-pertemuan flex-1 md:flex-none py-1.5 px-4 rounded-lg text-xs font-semibold transition-all duration-200 cursor-pointer text-slate-600 hover:text-slate-900 hover:bg-white/60">
         Pertemuan 2
       </button>
-      <button type="button" id="btn-p3" onclick="switchPertemuan(3)" class="btn-pertemuan flex-1 md:flex-none py-1.5 px-4 rounded-lg text-xs font-semibold transition-all duration-200 cursor-pointer text-slate-600 hover:text-slate-900 hover:bg-white/60">
+      <button type="button" id="btn-p3" class="btn-pertemuan flex-1 md:flex-none py-1.5 px-4 rounded-lg text-xs font-semibold transition-all duration-200 cursor-pointer text-slate-600 hover:text-slate-900 hover:bg-white/60">
         Pertemuan 3
       </button>
     </div>
@@ -130,7 +130,6 @@
 
       <!-- GRID FOTO PLACEHOLDER -->
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 md:gap-4">
-        
         <div class="group relative bg-slate-50 rounded-2xl border-2 border-dashed border-slate-200 p-4 min-h-[160px] md:min-h-[180px] flex flex-col items-center justify-center text-center hover:border-blue-400 transition-all overflow-hidden">
           <img id="foto-bukti-1" src="" class="hidden absolute inset-0 w-full h-full object-cover rounded-2xl" alt="Bukti 1">
           <div class="space-y-1 z-10">
@@ -163,7 +162,6 @@
             <p class="text-[10px] text-slate-400">Presentasi & Evaluasi Asesmen</p>
           </div>
         </div>
-
       </div>
     </div>
 
@@ -171,176 +169,190 @@
 
 </div>
 
-<!-- SCRIPT LOGIKA SELEKSI SIKLUS & PERTEMUAN -->
+<!-- SCRIPT LOGIKA SELEKSI SIKLUS & PERTEMUAN (DENGAN EVENT LISTENER & DRIVE PARSER) -->
 <script>
-  window.currentSiklus = window.currentSiklus || 2;
-  window.currentPertemuan = window.currentPertemuan || 1;
+  (function() {
+    let currentSiklus = 2;
+    let currentPertemuan = 1;
 
-  const dataPembelajaran = {
-    2: {
-      1: {
-        mapel: "Matematika", kelas: "Kelas III / Fase B", alokasi: "2 JP (2 x 35 Menit)",
-        bab: "Matematika - Siklus Mandiri 2", topik: "Pertemuan 1",
-        deskripsi: "Rencana Pembelajaran Mendalam (RPM) Matematika Siklus Mandiri 2 Pertemuan 1 yang dirancang untuk memfasilitasi pemahaman kontekstual murid.",
-        model: "Problem Based Learning", pendekatan: "Deep Learning", metode: "Diskusi & Problem Solving", dimensi: "Bernalar Kritis & Gotong Royong",
-        linkDrive: "https://drive.google.com/file/d/1RNrWRrwes2ZmnibOTP_-mx4O9o1APGdK/view?usp=drive_link",
-        previewPdf: "https://drive.google.com/file/d/1RNrWRrwes2ZmnibOTP_-mx4O9o1APGdK/preview",
-        analisis1: "Sintaks pembelajaran memadukan pemecahan masalah kontekstual dan keterlibatan aktif peserta didik.",
-        analisis2: "LKPD dan media dirancang untuk memperkuat keterrampilan bernalar kritis dan kerja sama kelompok."
-      },
+    const dataPembelajaran = {
       2: {
-        mapel: "IPAS", kelas: "Kelas III / Fase B", alokasi: "2 JP (2 x 35 Menit)",
-        bab: "IPAS - Siklus Mandiri 2", topik: "Pertemuan 2",
-        deskripsi: "Rencana Pembelajaran Mendalam (RPM) IPAS Siklus Mandiri 2 Pertemuan 2 yang menekankan eksplorasi dan pengamatan langsung.",
-        model: "Problem Based Learning", pendekatan: "Deep Learning", metode: "Observasi & Eksperimen", dimensi: "Bernalar Kritis & Gotong Royong",
-        linkDrive: "https://drive.google.com/file/d/1fBUBv8WaEqxRas-oOuVSjBtH2K33VJrM/view?usp=drive_link",
-        previewPdf: "https://drive.google.com/file/d/1fBUBv8WaEqxRas-oOuVSjBtH2K33VJrM/preview",
-        analisis1: "Pendekatan eksploratif memandu murid memahami fenomena alam secara saintifik.",
-        analisis2: "Penggunaan media konkret mempermudah pemahaman konsep saintifik yang dipelajari."
+        1: {
+          mapel: "Matematika", kelas: "Kelas III / Fase B", alokasi: "2 JP (2 x 35 Menit)",
+          bab: "Matematika - Siklus Mandiri 2", topik: "Pertemuan 1",
+          deskripsi: "Rencana Pembelajaran Mendalam (RPM) Matematika Siklus Mandiri 2 Pertemuan 1 yang dirancang untuk memfasilitasi pemahaman kontekstual murid.",
+          model: "Problem Based Learning", pendekatan: "Deep Learning", metode: "Diskusi & Problem Solving", dimensi: "Bernalar Kritis & Gotong Royong",
+          linkDrive: "https://drive.google.com/file/d/1RNrWRrwes2ZmnibOTP_-mx4O9o1APGdK/view?usp=drive_link",
+          analisis1: "Sintaks pembelajaran memadukan pemecahan masalah kontekstual dan keterlibatan aktif peserta didik.",
+          analisis2: "LKPD dan media dirancang untuk memperkuat keterrampilan bernalar kritis dan kerja sama kelompok."
+        },
+        2: {
+          mapel: "IPAS", kelas: "Kelas III / Fase B", alokasi: "2 JP (2 x 35 Menit)",
+          bab: "IPAS - Siklus Mandiri 2", topik: "Pertemuan 2",
+          deskripsi: "Rencana Pembelajaran Mendalam (RPM) IPAS Siklus Mandiri 2 Pertemuan 2 yang menekankan eksplorasi dan pengamatan langsung.",
+          model: "Problem Based Learning", pendekatan: "Deep Learning", metode: "Observasi & Eksperimen", dimensi: "Bernalar Kritis & Gotong Royong",
+          linkDrive: "https://drive.google.com/file/d/1fBUBv8WaEqxRas-oOuVSjBtH2K33VJrM/view?usp=drive_link",
+          analisis1: "Pendekatan eksploratif memandu murid memahami fenomena alam secara saintifik.",
+          analisis2: "Penggunaan media konkret mempermudah pemahaman konsep saintifik yang dipelajari."
+        },
+        3: {
+          mapel: "Matematika", kelas: "Kelas III / Fase B", alokasi: "2 JP (2 x 35 Menit)",
+          bab: "Matematika - Siklus Mandiri 2", topik: "Pertemuan 3",
+          deskripsi: "Rencana Pembelajaran Mendalam (RPM) Matematika Siklus Mandiri 2 Pertemuan 3 yang berfokus pada pemantapan konsep dan latihan terbimbing.",
+          model: "Problem Based Learning", pendekatan: "Deep Learning", metode: "Latihan Terbimbing & Diskusi", dimensi: "Bernalar Kritis & Mandiri",
+          linkDrive: "https://drive.google.com/file/d/1CKV3_a_LfoTy_5_0srPTS20tAAlWwn8_/view?usp=drive_link",
+          analisis1: "Strategi diferensiasi proses diterapkan untuk mengakomodasi ragam kesiapan belajar murid.",
+          analisis2: "Asesmen formatif digunakan secara kontinu untuk memantau kemajuan pemahaman murid."
+        }
       },
       3: {
-        mapel: "Matematika", kelas: "Kelas III / Fase B", alokasi: "2 JP (2 x 35 Menit)",
-        bab: "Matematika - Siklus Mandiri 2", topik: "Pertemuan 3",
-        deskripsi: "Rencana Pembelajaran Mendalam (RPM) Matematika Siklus Mandiri 2 Pertemuan 3 yang berfokus pada pemantapan konsep dan latihan terbimbing.",
-        model: "Problem Based Learning", pendekatan: "Deep Learning", metode: "Latihan Terbimbing & Diskusi", dimensi: "Bernalar Kritis & Mandiri",
-        linkDrive: "https://drive.google.com/file/d/1CKV3_a_LfoTy_5_0srPTS20tAAlWwn8_/view?usp=drive_link",
-        previewPdf: "https://drive.google.com/file/d/1CKV3_a_LfoTy_5_0srPTS20tAAlWwn8_/preview",
-        analisis1: "Strategi diferensiasi proses diterapkan untuk mengakomodasi ragam kesiapan belajar murid.",
-        analisis2: "Asesmen formatif digunakan secara kontinu untuk memantau kemajuan pemahaman murid."
+        1: {
+          mapel: "IPAS", kelas: "Kelas III / Fase B", alokasi: "2 JP (2 x 35 Menit)",
+          bab: "IPAS - Siklus Mandiri 3", topik: "Pertemuan 1",
+          deskripsi: "Rencana Pembelajaran Mendalam (RPM) IPAS Siklus Mandiri 3 Pertemuan 1 mengintegrasikan penyelidikan kelompok interaktif.",
+          model: "Problem Based Learning", pendekatan: "Deep Learning", metode: "Penyelidikan & Diskusi", dimensi: "Gotong Royong & Bernalar Kritis",
+          linkDrive: "https://drive.google.com/file/d/1h0OEjQpNrcbbz_q1f0ikRFoEQBrCMuSi/view?usp=drive_link",
+          analisis1: "Pembelajaran berbasis masalah merangsang ketertarikan murid terhadap materi IPAS.",
+          analisis2: "LKPD terstruktur membantu alur kerja kelompok berjalan secara sistematis."
+        },
+        2: {
+          mapel: "Matematika", kelas: "Kelas III / Fase B", alokasi: "2 JP (2 x 35 Menit)",
+          bab: "Matematika - Siklus Mandiri 3", topik: "Pertemuan 2",
+          deskripsi: "Rencana Pembelajaran Mendalam (RPM) Matematika Siklus Mandiri 3 Pertemuan 2 berfokus pada penguatan penalaran operasional.",
+          model: "Problem Based Learning", pendekatan: "Deep Learning", metode: "Praktik & Tanya Jawab", dimensi: "Bernalar Kritis & Mandiri",
+          linkDrive: "https://drive.google.com/file/d/1ALdv1eo3_11MfeUi4Z7hHa1ZbqZPwdo9/view?usp=drive_link",
+          analisis1: "Penerapan perancangan bertahap membantu mengurangi tingkat kesulitan abstrak pada matematika.",
+          analisis2: "Instrumen asesmen mengukur kemampuan pemecahan masalah serta ketepatan hasil."
+        },
+        3: {
+          mapel: "Matematika", kelas: "Kelas III / Fase B", alokasi: "2 JP (2 x 35 Menit)",
+          bab: "Matematika - Siklus Mandiri 3", topik: "Pertemuan 3",
+          deskripsi: "Rencana Pembelajaran Mendalam (RPM) Matematika Siklus Mandiri 3 Pertemuan 3 yang mendalamkan penerapan dalam kehidupan sehari-hari.",
+          model: "Problem Based Learning", pendekatan: "Deep Learning", metode: "Studi Kasus & Presentasi", dimensi: "Bernalar Kritis & Gotong Royong",
+          linkDrive: "https://drive.google.com/file/d/1K6bloYOB2gIEoKTUT-5kIqVOKHnmZ-OL/view?usp=drive_link",
+          analisis1: "Keterkaitan materi dengan kehidupan nyata meningkatkan kebermaknaan belajar murid.",
+          analisis2: "Presentasi kelompok melatih komunikasi matematis dan rasa percaya diri murid."
+        }
+      },
+      4: {
+        1: {
+          mapel: "IPAS", kelas: "Kelas III / Fase B", alokasi: "2 JP (2 x 35 Menit)",
+          bab: "IPAS - Siklus Mandiri 4", topik: "Pertemuan 1",
+          deskripsi: "Rencana Pembelajaran Mendalam (RPM) IPAS Siklus Mandiri 4 Pertemuan 1 diawali dengan orientasi masalah kontekstual lingkungan.",
+          model: "Problem Based Learning", pendekatan: "Deep Learning", metode: "Diskusi & Refleksi", dimensi: "Bernalar Kritis & Kreatif",
+          linkDrive: "https://drive.google.com/file/d/1jy6ehcPdLJ6GOn6ci1dPlrjWDtFYk3Jl/view?usp=drive_link",
+          analisis1: "Penggunaan isu lingkungan lokal membangkitkan pemikiran kritis dan empati murid.",
+          analisis2: "Asesmen proses difokuskan pada keaktifan murid selama kegiatan penemuan."
+        },
+        2: {
+          mapel: "Matematika", kelas: "Kelas III / Fase B", alokasi: "2 JP (2 x 35 Menit)",
+          bab: "Matematika - Siklus Mandiri 4", topik: "Pertemuan 2",
+          deskripsi: "Rencana Pembelajaran Mendalam (RPM) Matematika Siklus Mandiri 4 Pertemuan 2 berfokus pada ketrampilan manipulatif dan alat bantu.",
+          model: "Problem Based Learning", pendekatan: "Deep Learning", metode: "Praktik Langsung & Problem Solving", dimensi: "Bernalar Kritis & Mandiri",
+          linkDrive: "https://drive.google.com/file/d/1Dut6_pjGXT7dqXYec0GGTzQ7RVjPVFqH/view?usp=drive_link",
+          analisis1: "Praktik langsung meningkatkan retensi ingatan jangka panjang peserta didik.",
+          analisis2: "Rubrik unjuk kerja memberikan umpan balik yang konstruktif dan terukur."
+        },
+        3: {
+          mapel: "IPAS", kelas: "Kelas III / Fase B", alokasi: "2 JP (2 x 35 Menit)",
+          bab: "IPAS - Siklus Mandiri 4", topik: "Pertemuan 3",
+          deskripsi: "Rencana Pembelajaran Mendalam (RPM) IPAS Siklus Mandiri 4 Pertemuan 3 sebagai puncak sintesis dan evaluasi pembelajaran.",
+          model: "Problem Based Learning", pendekatan: "Deep Learning", metode: "Penyajian Hasil & Evaluasi", dimensi: "Bernalar Kritis & Gotong Royong",
+          linkDrive: "https://drive.google.com/file/d/14pfZDWQdDt4i3hl3-QM_ZOrjP6FFM3Ja/view?usp=drive_link",
+          analisis1: "Refleksi menyeluruh membantu murid mengkonsolidasikan seluruh pengetahuan yang diperoleh.",
+          analisis2: "Evaluasi sumatif akhir siklus mengukur ketercapaian tujuan pembelajaran secara holistik."
+        }
       }
-    },
-    3: {
-      1: {
-        mapel: "IPAS", kelas: "Kelas III / Fase B", alokasi: "2 JP (2 x 35 Menit)",
-        bab: "IPAS - Siklus Mandiri 3", topik: "Pertemuan 1",
-        deskripsi: "Rencana Pembelajaran Mendalam (RPM) IPAS Siklus Mandiri 3 Pertemuan 1 mengintegrasikan penyelidikan kelompok interaktif.",
-        model: "Problem Based Learning", pendekatan: "Deep Learning", metode: "Penyelidikan & Diskusi", dimensi: "Gotong Royong & Bernalar Kritis",
-        linkDrive: "https://drive.google.com/file/d/1h0OEjQpNrcbbz_q1f0ikRFoEQBrCMuSi/view?usp=drive_link",
-        previewPdf: "https://drive.google.com/file/d/1h0OEjQpNrcbbz_q1f0ikRFoEQBrCMuSi/preview",
-        analisis1: "Pembelajaran berbasis masalah merangsang ketertarikan murid terhadap materi IPAS.",
-        analisis2: "LKPD terstruktur membantu alur kerja kelompok berjalan secara sistematis."
-      },
-      2: {
-        mapel: "Matematika", kelas: "Kelas III / Fase B", alokasi: "2 JP (2 x 35 Menit)",
-        bab: "Matematika - Siklus Mandiri 3", topik: "Pertemuan 2",
-        deskripsi: "Rencana Pembelajaran Mendalam (RPM) Matematika Siklus Mandiri 3 Pertemuan 2 berfokus pada penguatan penalaran operasional.",
-        model: "Problem Based Learning", pendekatan: "Deep Learning", metode: "Praktik & Tanya Jawab", dimensi: "Bernalar Kritis & Mandiri",
-        linkDrive: "https://drive.google.com/file/d/1ALdv1eo3_11MfeUi4Z7hHa1ZbqZPwdo9/view?usp=drive_link",
-        previewPdf: "https://drive.google.com/file/d/1ALdv1eo3_11MfeUi4Z7hHa1ZbqZPwdo9/preview",
-        analisis1: "Penerapan perancangan bertahap membantu mengurangi tingkat kesulitan abstrak pada matematika.",
-        analisis2: "Instrumen asesmen mengukur kemampuan pemecahan masalah serta ketepatan hasil."
-      },
-      3: {
-        mapel: "Matematika", kelas: "Kelas III / Fase B", alokasi: "2 JP (2 x 35 Menit)",
-        bab: "Matematika - Siklus Mandiri 3", topik: "Pertemuan 3",
-        deskripsi: "Rencana Pembelajaran Mendalam (RPM) Matematika Siklus Mandiri 3 Pertemuan 3 yang mendalamkan penerapan dalam kehidupan sehari-hari.",
-        model: "Problem Based Learning", pendekatan: "Deep Learning", metode: "Studi Kasus & Presentasi", dimensi: "Bernalar Kritis & Gotong Royong",
-        linkDrive: "https://drive.google.com/file/d/1K6bloYOB2gIEoKTUT-5kIqVOKHnmZ-OL/view?usp=drive_link",
-        previewPdf: "https://drive.google.com/file/d/1K6bloYOB2gIEoKTUT-5kIqVOKHnmZ-OL/preview",
-        analisis1: "Keterkaitan materi dengan kehidupan nyata meningkatkan kebermaknaan belajar murid.",
-        analisis2: "Presentasi kelompok melatih komunikasi matematis dan rasa percaya diri murid."
+    };
+
+    // Fungsi ekstraksi ID Berkas Google Drive untuk Preview iframe
+    function getDrivePreviewUrl(url) {
+      const match = url.match(/\/d\/([a-zA-Z0-9_-]+)/);
+      if (match && match[1]) {
+        return `https://drive.google.com/file/d/${match[1]}/preview`;
       }
-    },
-    4: {
-      1: {
-        mapel: "IPAS", kelas: "Kelas III / Fase B", alokasi: "2 JP (2 x 35 Menit)",
-        bab: "IPAS - Siklus Mandiri 4", topik: "Pertemuan 1",
-        deskripsi: "Rencana Pembelajaran Mendalam (RPM) IPAS Siklus Mandiri 4 Pertemuan 1 diawali dengan orientasi masalah kontekstual lingkungan.",
-        model: "Problem Based Learning", pendekatan: "Deep Learning", metode: "Diskusi & Refleksi", dimensi: "Bernalar Kritis & Kreatif",
-        linkDrive: "https://drive.google.com/file/d/1jy6ehcPdLJ6GOn6ci1dPlrjWDtFYk3Jl/view?usp=drive_link",
-        previewPdf: "https://drive.google.com/file/d/1jy6ehcPdLJ6GOn6ci1dPlrjWDtFYk3Jl/preview",
-        analisis1: "Penggunaan isu lingkungan lokal membangkitkan pemikiran kritis dan empati murid.",
-        analisis2: "Asesmen proses difokuskan pada keaktifan murid selama kegiatan penemuan."
-      },
-      2: {
-        mapel: "Matematika", kelas: "Kelas III / Fase B", alokasi: "2 JP (2 x 35 Menit)",
-        bab: "Matematika - Siklus Mandiri 4", topik: "Pertemuan 2",
-        deskripsi: "Rencana Pembelajaran Mendalam (RPM) Matematika Siklus Mandiri 4 Pertemuan 2 berfokus pada ketrampilan manipulatif dan alat bantu.",
-        model: "Problem Based Learning", pendekatan: "Deep Learning", metode: "Praktik Langsung & Problem Solving", dimensi: "Bernalar Kritis & Mandiri",
-        linkDrive: "https://drive.google.com/file/d/1Dut6_pjGXT7dqXYec0GGTzQ7RVjPVFqH/view?usp=drive_link",
-        previewPdf: "https://drive.google.com/file/d/1Dut6_pjGXT7dqXYec0GGTzQ7RVjPVFqH/preview",
-        analisis1: "Praktik langsung meningkatkan retensi ingatan jangka panjang peserta didik.",
-        analisis2: "Rubrik unjuk kerja memberikan umpan balik yang konstruktif dan terukur."
-      },
-      3: {
-        mapel: "IPAS", kelas: "Kelas III / Fase B", alokasi: "2 JP (2 x 35 Menit)",
-        bab: "IPAS - Siklus Mandiri 4", topik: "Pertemuan 3",
-        deskripsi: "Rencana Pembelajaran Mendalam (RPM) IPAS Siklus Mandiri 4 Pertemuan 3 sebagai puncak sintesis dan evaluasi pembelajaran.",
-        model: "Problem Based Learning", pendekatan: "Deep Learning", metode: "Penyajian Hasil & Evaluasi", dimensi: "Bernalar Kritis & Gotong Royong",
-        linkDrive: "https://drive.google.com/file/d/14pfZDWQdDt4i3hl3-QM_ZOrjP6FFM3Ja/view?usp=drive_link",
-        previewPdf: "https://drive.google.com/file/d/14pfZDWQdDt4i3hl3-QM_ZOrjP6FFM3Ja/preview",
-        analisis1: "Refleksi menyeluruh membantu murid mengkonsolidasikan seluruh pengetahuan yang diperoleh.",
-        analisis2: "Evaluasi sumatif akhir siklus mengukur ketercapaian tujuan pembelajaran secara holistik."
-      }
+      return url;
     }
-  };
 
-  function switchSiklus(siklusNum) {
-    window.currentSiklus = siklusNum;
-    window.currentPertemuan = 1;
+    function renderDataContent() {
+      const data = dataPembelajaran[currentSiklus][currentPertemuan];
+      if (!data) return;
 
+      // Update Tampilan Tombol Siklus
+      [2, 3, 4].forEach(s => {
+        const btn = document.getElementById(`btn-siklus-${s}`);
+        if (btn) {
+          if (s === currentSiklus) {
+            btn.className = "btn-siklus flex-1 md:flex-none py-1.5 px-4 rounded-lg text-xs font-extrabold transition-all duration-200 cursor-pointer bg-white text-blue-700 shadow-xs border border-slate-200/60";
+          } else {
+            btn.className = "btn-siklus flex-1 md:flex-none py-1.5 px-4 rounded-lg text-xs font-bold transition-all duration-200 cursor-pointer text-slate-500 hover:text-slate-800 hover:bg-white/60";
+          }
+        }
+      });
+
+      // Update Tampilan Tombol Pertemuan
+      [1, 2, 3].forEach(p => {
+        const btn = document.getElementById(`btn-p${p}`);
+        if (btn) {
+          if (p === currentPertemuan) {
+            btn.className = "btn-pertemuan flex-1 md:flex-none py-1.5 px-4 rounded-lg text-xs font-extrabold transition-all duration-200 cursor-pointer bg-blue-600 text-white shadow-xs";
+          } else {
+            btn.className = "btn-pertemuan flex-1 md:flex-none py-1.5 px-4 rounded-lg text-xs font-semibold transition-all duration-200 cursor-pointer text-slate-600 hover:text-slate-900 hover:bg-white/60";
+          }
+        }
+      });
+
+      // Update Teks & Metadata
+      document.getElementById('badge-mapel').textContent = data.mapel;
+      document.getElementById('badge-kelas').textContent = data.kelas;
+      document.getElementById('badge-alokasi').textContent = data.alokasi;
+      document.getElementById('text-judul-bab').textContent = data.bab;
+      document.getElementById('text-topik').textContent = data.topik;
+      document.getElementById('text-deskripsi').textContent = data.deskripsi;
+
+      document.getElementById('meta-model').textContent = data.model;
+      document.getElementById('meta-pendekatan').textContent = data.pendekatan;
+      document.getElementById('meta-metode').textContent = data.metode;
+      document.getElementById('meta-dimensi').textContent = data.dimensi;
+
+      // Update Tautan Drive & QR Code
+      document.getElementById('link-drive-rpm').href = data.linkDrive;
+      const encodedUrl = encodeURIComponent(data.linkDrive);
+      document.getElementById('qr-code-rpm').src = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodedUrl}`;
+
+      // Update Frame Preview PDF
+      document.getElementById('iframe-preview-rpm').src = getDrivePreviewUrl(data.linkDrive);
+
+      // Update Analisis & Label
+      document.getElementById('analisis-perencanaan').textContent = data.analisis1;
+      document.getElementById('analisis-media').textContent = data.analisis2;
+      document.getElementById('label-bukti-pertemuan').textContent = `Siklus ${currentSiklus} — Pertemuan ${currentPertemuan}`;
+    }
+
+    // Bind Event Handler ke Tombol Siklus
     [2, 3, 4].forEach(s => {
       const btn = document.getElementById(`btn-siklus-${s}`);
       if (btn) {
-        if (s === siklusNum) {
-          btn.className = "btn-siklus flex-1 md:flex-none py-1.5 px-4 rounded-lg text-xs font-extrabold transition-all duration-200 cursor-pointer bg-white text-blue-700 shadow-xs border border-slate-200/60";
-        } else {
-          btn.className = "btn-siklus flex-1 md:flex-none py-1.5 px-4 rounded-lg text-xs font-bold transition-all duration-200 cursor-pointer text-slate-500 hover:text-slate-800 hover:bg-white/60";
-        }
+        btn.addEventListener('click', function() {
+          currentSiklus = s;
+          currentPertemuan = 1;
+          renderDataContent();
+        });
       }
     });
 
-    renderDataContent();
-  }
-
-  function switchPertemuan(pertemuanNum) {
-    window.currentPertemuan = pertemuanNum;
-    renderDataContent();
-  }
-
-  function renderDataContent() {
-    const siklus = window.currentSiklus;
-    const pertemuan = window.currentPertemuan;
-    const data = dataPembelajaran[siklus][pertemuan];
-
-    if (!data) return;
-
+    // Bind Event Handler ke Tombol Pertemuan
     [1, 2, 3].forEach(p => {
       const btn = document.getElementById(`btn-p${p}`);
       if (btn) {
-        if (p === pertemuan) {
-          btn.className = "btn-pertemuan flex-1 md:flex-none py-1.5 px-4 rounded-lg text-xs font-extrabold transition-all duration-200 cursor-pointer bg-blue-600 text-white shadow-xs";
-        } else {
-          btn.className = "btn-pertemuan flex-1 md:flex-none py-1.5 px-4 rounded-lg text-xs font-semibold transition-all duration-200 cursor-pointer text-slate-600 hover:text-slate-900 hover:bg-white/60";
-        }
+        btn.addEventListener('click', function() {
+          currentPertemuan = p;
+          renderDataContent();
+        });
       }
     });
 
-    document.getElementById('badge-mapel').textContent = data.mapel;
-    document.getElementById('badge-kelas').textContent = data.kelas;
-    document.getElementById('badge-alokasi').textContent = data.alokasi;
-    document.getElementById('text-judul-bab').textContent = data.bab;
-    document.getElementById('text-topik').textContent = data.topik;
-    document.getElementById('text-deskripsi').textContent = data.deskripsi;
-
-    document.getElementById('meta-model').textContent = data.model;
-    document.getElementById('meta-pendekatan').textContent = data.pendekatan;
-    document.getElementById('meta-metode').textContent = data.metode;
-    document.getElementById('meta-dimensi').textContent = data.dimensi;
-
-    document.getElementById('link-drive-rpm').href = data.linkDrive;
-    
-    // QR Code dinamis menggunakan QuickChart QR API
-    const encodedUrl = encodeURIComponent(data.linkDrive);
-    document.getElementById('qr-code-rpm').src = `https://quickchart.io/qr?text=${encodedUrl}&size=150`;
-
-    document.getElementById('iframe-preview-rpm').src = data.previewPdf;
-
-    document.getElementById('analisis-perencanaan').textContent = data.analisis1;
-    document.getElementById('analisis-media').textContent = data.analisis2;
-
-    document.getElementById('label-bukti-pertemuan').textContent = `Siklus ${siklus} — Pertemuan ${pertemuan}`;
-  }
-
-  renderDataContent();
+    // Inisialisasi awal
+    renderDataContent();
+  })();
 </script>
