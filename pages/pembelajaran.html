@@ -20,26 +20,26 @@
     
     <!-- DERET TOMBOL SIKLUS (SIKLUS 2 - 4) -->
     <div class="flex items-center gap-1.5 w-full md:w-auto bg-slate-100/80 p-1 rounded-xl">
-      <button type="button" id="btn-siklus-2" class="btn-siklus flex-1 md:flex-none py-1.5 px-4 rounded-lg text-xs font-extrabold transition-all duration-200 cursor-pointer bg-white text-blue-700 shadow-xs border border-slate-200/60">
+      <button type="button" data-siklus="2" id="btn-siklus-2" class="btn-siklus flex-1 md:flex-none py-1.5 px-4 rounded-lg text-xs font-extrabold transition-all duration-200 cursor-pointer bg-white text-blue-700 shadow-xs border border-slate-200/60">
         Siklus 2
       </button>
-      <button type="button" id="btn-siklus-3" class="btn-siklus flex-1 md:flex-none py-1.5 px-4 rounded-lg text-xs font-bold transition-all duration-200 cursor-pointer text-slate-500 hover:text-slate-800 hover:bg-white/60">
+      <button type="button" data-siklus="3" id="btn-siklus-3" class="btn-siklus flex-1 md:flex-none py-1.5 px-4 rounded-lg text-xs font-bold transition-all duration-200 cursor-pointer text-slate-500 hover:text-slate-800 hover:bg-white/60">
         Siklus 3
       </button>
-      <button type="button" id="btn-siklus-4" class="btn-siklus flex-1 md:flex-none py-1.5 px-4 rounded-lg text-xs font-bold transition-all duration-200 cursor-pointer text-slate-500 hover:text-slate-800 hover:bg-white/60">
+      <button type="button" data-siklus="4" id="btn-siklus-4" class="btn-siklus flex-1 md:flex-none py-1.5 px-4 rounded-lg text-xs font-bold transition-all duration-200 cursor-pointer text-slate-500 hover:text-slate-800 hover:bg-white/60">
         Siklus 4
       </button>
     </div>
 
     <!-- DERET TOMBOL PERTEMUAN (P1 - P3) -->
     <div class="flex items-center gap-1 bg-slate-100/80 p-1 rounded-xl w-full md:w-auto">
-      <button type="button" id="btn-p1" class="btn-pertemuan flex-1 md:flex-none py-1.5 px-4 rounded-lg text-xs font-extrabold transition-all duration-200 cursor-pointer bg-blue-600 text-white shadow-xs">
+      <button type="button" data-pertemuan="1" id="btn-p1" class="btn-pertemuan flex-1 md:flex-none py-1.5 px-4 rounded-lg text-xs font-extrabold transition-all duration-200 cursor-pointer bg-blue-600 text-white shadow-xs">
         Pertemuan 1
       </button>
-      <button type="button" id="btn-p2" class="btn-pertemuan flex-1 md:flex-none py-1.5 px-4 rounded-lg text-xs font-semibold transition-all duration-200 cursor-pointer text-slate-600 hover:text-slate-900 hover:bg-white/60">
+      <button type="button" data-pertemuan="2" id="btn-p2" class="btn-pertemuan flex-1 md:flex-none py-1.5 px-4 rounded-lg text-xs font-semibold transition-all duration-200 cursor-pointer text-slate-600 hover:text-slate-900 hover:bg-white/60">
         Pertemuan 2
       </button>
-      <button type="button" id="btn-p3" class="btn-pertemuan flex-1 md:flex-none py-1.5 px-4 rounded-lg text-xs font-semibold transition-all duration-200 cursor-pointer text-slate-600 hover:text-slate-900 hover:bg-white/60">
+      <button type="button" data-pertemuan="3" id="btn-p3" class="btn-pertemuan flex-1 md:flex-none py-1.5 px-4 rounded-lg text-xs font-semibold transition-all duration-200 cursor-pointer text-slate-600 hover:text-slate-900 hover:bg-white/60">
         Pertemuan 3
       </button>
     </div>
@@ -169,9 +169,9 @@
 
 </div>
 
-<!-- SCRIPT LOGIKA SELEKSI SIKLUS & PERTEMUAN (DENGAN EVENT LISTENER & DRIVE PARSER) -->
+<!-- SCRIPT LOGIKA SELEKSI SIKLUS & PERTEMUAN -->
 <script>
-  (function() {
+  function initArtifakPembelajaran() {
     let currentSiklus = 2;
     let currentPertemuan = 1;
 
@@ -265,8 +265,8 @@
       }
     };
 
-    // Fungsi ekstraksi ID Berkas Google Drive untuk Preview iframe
     function getDrivePreviewUrl(url) {
+      if (!url) return '';
       const match = url.match(/\/d\/([a-zA-Z0-9_-]+)/);
       if (match && match[1]) {
         return `https://drive.google.com/file/d/${match[1]}/preview`;
@@ -275,7 +275,7 @@
     }
 
     function renderDataContent() {
-      const data = dataPembelajaran[currentSiklus][currentPertemuan];
+      const data = dataPembelajaran[currentSiklus] && dataPembelajaran[currentSiklus][currentPertemuan];
       if (!data) return;
 
       // Update Tampilan Tombol Siklus
@@ -303,56 +303,92 @@
       });
 
       // Update Teks & Metadata
-      document.getElementById('badge-mapel').textContent = data.mapel;
-      document.getElementById('badge-kelas').textContent = data.kelas;
-      document.getElementById('badge-alokasi').textContent = data.alokasi;
-      document.getElementById('text-judul-bab').textContent = data.bab;
-      document.getElementById('text-topik').textContent = data.topik;
-      document.getElementById('text-deskripsi').textContent = data.deskripsi;
+      const badgeMapel = document.getElementById('badge-mapel');
+      if (badgeMapel) badgeMapel.textContent = data.mapel;
 
-      document.getElementById('meta-model').textContent = data.model;
-      document.getElementById('meta-pendekatan').textContent = data.pendekatan;
-      document.getElementById('meta-metode').textContent = data.metode;
-      document.getElementById('meta-dimensi').textContent = data.dimensi;
+      const badgeKelas = document.getElementById('badge-kelas');
+      if (badgeKelas) badgeKelas.textContent = data.kelas;
 
-      // Update Tautan Drive & QR Code
-      document.getElementById('link-drive-rpm').href = data.linkDrive;
-      const encodedUrl = encodeURIComponent(data.linkDrive);
-      document.getElementById('qr-code-rpm').src = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodedUrl}`;
+      const badgeAlokasi = document.getElementById('badge-alokasi');
+      if (badgeAlokasi) badgeAlokasi.textContent = data.alokasi;
 
-      // Update Frame Preview PDF
-      document.getElementById('iframe-preview-rpm').src = getDrivePreviewUrl(data.linkDrive);
+      const textJudulBab = document.getElementById('text-judul-bab');
+      if (textJudulBab) textJudulBab.textContent = data.bab;
 
-      // Update Analisis & Label
-      document.getElementById('analisis-perencanaan').textContent = data.analisis1;
-      document.getElementById('analisis-media').textContent = data.analisis2;
-      document.getElementById('label-bukti-pertemuan').textContent = `Siklus ${currentSiklus} — Pertemuan ${currentPertemuan}`;
+      const textTopik = document.getElementById('text-topik');
+      if (textTopik) textTopik.textContent = data.topik;
+
+      const textDeskripsi = document.getElementById('text-deskripsi');
+      if (textDeskripsi) textDeskripsi.textContent = data.deskripsi;
+
+      const metaModel = document.getElementById('meta-model');
+      if (metaModel) metaModel.textContent = data.model;
+
+      const metaPendekatan = document.getElementById('meta-pendekatan');
+      if (metaPendekatan) metaPendekatan.textContent = data.pendekatan;
+
+      const metaMetode = document.getElementById('meta-metode');
+      if (metaMetode) metaMetode.textContent = data.metode;
+
+      const metaDimensi = document.getElementById('meta-dimensi');
+      if (metaDimensi) metaDimensi.textContent = data.dimensi;
+
+      // Update Link & QR Code
+      const linkDrive = document.getElementById('link-drive-rpm');
+      if (linkDrive) linkDrive.href = data.linkDrive;
+
+      const qrCode = document.getElementById('qr-code-rpm');
+      if (qrCode) {
+        const encodedUrl = encodeURIComponent(data.linkDrive);
+        qrCode.src = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodedUrl}`;
+      }
+
+      // Update Preview PDF
+      const iframePreview = document.getElementById('iframe-preview-rpm');
+      if (iframePreview) {
+        iframePreview.src = getDrivePreviewUrl(data.linkDrive);
+      }
+
+      // Update Analisis
+      const analisis1 = document.getElementById('analisis-perencanaan');
+      if (analisis1) analisis1.textContent = data.analisis1;
+
+      const analisis2 = document.getElementById('analisis-media');
+      if (analisis2) analisis2.textContent = data.analisis2;
+
+      const labelBukti = document.getElementById('label-bukti-pertemuan');
+      if (labelBukti) labelBukti.textContent = `Siklus ${currentSiklus} — Pertemuan ${currentPertemuan}`;
     }
 
-    // Bind Event Handler ke Tombol Siklus
+    // Delegation Event Klik Tombol Siklus
     [2, 3, 4].forEach(s => {
       const btn = document.getElementById(`btn-siklus-${s}`);
       if (btn) {
-        btn.addEventListener('click', function() {
+        btn.onclick = function() {
           currentSiklus = s;
           currentPertemuan = 1;
           renderDataContent();
-        });
+        };
       }
     });
 
-    // Bind Event Handler ke Tombol Pertemuan
+    // Delegation Event Klik Tombol Pertemuan
     [1, 2, 3].forEach(p => {
       const btn = document.getElementById(`btn-p${p}`);
       if (btn) {
-        btn.addEventListener('click', function() {
+        btn.onclick = function() {
           currentPertemuan = p;
           renderDataContent();
-        });
+        };
       }
     });
 
-    // Inisialisasi awal
     renderDataContent();
-  })();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initArtifakPembelajaran);
+  } else {
+    initArtifakPembelajaran();
+  }
 </script>
