@@ -536,9 +536,8 @@
     let activePertemuan = 1;
 
     function updateView() {
-      // Sembunyikan semua item
-      const items = document.querySelectorAll('.artifak-item');
-      items.forEach(el => el.classList.add('hidden'));
+      // Sembunyikan semua item artifak
+      document.querySelectorAll('.artifak-item').forEach(el => el.classList.add('hidden'));
 
       // Tampilkan item aktif
       const activeEl = document.getElementById(`item-s${activeSiklus}-p${activePertemuan}`);
@@ -577,35 +576,24 @@
       }
     }
 
-    function initEvents() {
-      [2, 3, 4].forEach(s => {
-        const btn = document.getElementById(`btn-s${s}`);
-        if (btn) {
-          btn.onclick = function() {
-            activeSiklus = s;
-            activePertemuan = 1;
-            updateView();
-          };
-        }
-      });
+    // Event Delegation pada document agar aksi klik selalu terdeteksi meski di-render dinamis
+    document.addEventListener('click', function(e) {
+      const targetSiklus = e.target.closest('.btn-siklus');
+      const targetPertemuan = e.target.closest('.btn-pertemuan');
 
-      [1, 2, 3].forEach(p => {
-        const btn = document.getElementById(`btn-p${p}`);
-        if (btn) {
-          btn.onclick = function() {
-            activePertemuan = p;
-            updateView();
-          };
-        }
-      });
+      if (targetSiklus) {
+        const id = targetSiklus.id;
+        activeSiklus = parseInt(id.replace('btn-s', ''));
+        activePertemuan = 1; // Reset ke pertemuan 1 setiap berganti siklus
+        updateView();
+      } else if (targetPertemuan) {
+        const id = targetPertemuan.id;
+        activePertemuan = parseInt(id.replace('btn-p', ''));
+        updateView();
+      }
+    });
 
-      updateView();
-    }
-
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', initEvents);
-    } else {
-      initEvents();
-    }
+    // Inisialisasi tampilan awal
+    updateView();
   })();
 </script>
