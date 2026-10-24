@@ -15,30 +15,38 @@
     </div>
   </div>
 
-  <!-- DROPDOWN SELECT NAVIGASI SIKLUS & PERTEMUAN -->
-  <div class="bg-white rounded-2xl p-4 shadow-sm border border-slate-200/80 flex flex-col sm:flex-row items-center justify-between gap-4">
+  <!-- DERET TOMBOL SIKLUS & PERTEMUAN -->
+  <div class="bg-white rounded-2xl p-2.5 md:p-3 shadow-sm border border-slate-200/80 flex flex-col md:flex-row items-center justify-between gap-3">
     
-    <div class="w-full sm:w-1/2 space-y-1">
-      <label for="select-siklus" class="block text-xs font-bold text-slate-700 uppercase tracking-wider">Pilih Siklus Pembelajaran:</label>
-      <select id="select-siklus" class="w-full bg-slate-50 border border-slate-300 text-slate-800 text-sm font-bold rounded-xl p-2.5 focus:ring-blue-500 focus:border-blue-500 cursor-pointer">
-        <option value="2">Siklus 2</option>
-        <option value="3">Siklus 3</option>
-        <option value="4">Siklus 4</option>
-      </select>
+    <!-- DERET TOMBOL SIKLUS -->
+    <div class="flex items-center gap-1.5 w-full md:w-auto bg-slate-100/80 p-1 rounded-xl">
+      <button type="button" id="btn-s2" class="btn-siklus flex-1 md:flex-none py-1.5 px-4 rounded-lg text-xs font-extrabold transition-all cursor-pointer bg-white text-blue-700 shadow-xs border border-slate-200/60">
+        Siklus 2
+      </button>
+      <button type="button" id="btn-s3" class="btn-siklus flex-1 md:flex-none py-1.5 px-4 rounded-lg text-xs font-bold transition-all cursor-pointer text-slate-500 hover:text-slate-800 hover:bg-white/60">
+        Siklus 3
+      </button>
+      <button type="button" id="btn-s4" class="btn-siklus flex-1 md:flex-none py-1.5 px-4 rounded-lg text-xs font-bold transition-all cursor-pointer text-slate-500 hover:text-slate-800 hover:bg-white/60">
+        Siklus 4
+      </button>
     </div>
 
-    <div class="w-full sm:w-1/2 space-y-1">
-      <label for="select-pertemuan" class="block text-xs font-bold text-slate-700 uppercase tracking-wider">Pilih Pertemuan:</label>
-      <select id="select-pertemuan" class="w-full bg-slate-50 border border-slate-300 text-slate-800 text-sm font-bold rounded-xl p-2.5 focus:ring-blue-500 focus:border-blue-500 cursor-pointer">
-        <option value="1">Pertemuan 1</option>
-        <option value="2">Pertemuan 2</option>
-        <option value="3">Pertemuan 3</option>
-      </select>
+    <!-- DERET TOMBOL PERTEMUAN -->
+    <div class="flex items-center gap-1 bg-slate-100/80 p-1 rounded-xl w-full md:w-auto">
+      <button type="button" id="btn-p1" class="btn-pertemuan flex-1 md:flex-none py-1.5 px-4 rounded-lg text-xs font-extrabold transition-all cursor-pointer bg-blue-600 text-white shadow-xs">
+        Pertemuan 1
+      </button>
+      <button type="button" id="btn-p2" class="btn-pertemuan flex-1 md:flex-none py-1.5 px-4 rounded-lg text-xs font-semibold transition-all cursor-pointer text-slate-600 hover:text-slate-900 hover:bg-white/60">
+        Pertemuan 2
+      </button>
+      <button type="button" id="btn-p3" class="btn-pertemuan flex-1 md:flex-none py-1.5 px-4 rounded-lg text-xs font-semibold transition-all cursor-pointer text-slate-600 hover:text-slate-900 hover:bg-white/60">
+        Pertemuan 3
+      </button>
     </div>
 
   </div>
 
-  <!-- CONTAINER UTAMA KONTEN -->
+  <!-- CONTAINER KONTEN UTAMA PERTEMUAN -->
   <div id="artifak-content-container">
 
     <!-- ================= SIKLUS 2 - PERTEMUAN 1 ================= -->
@@ -52,10 +60,10 @@
               <span class="bg-blue-100 text-blue-800 text-[11px] font-bold px-2.5 py-0.5 rounded-md">2 JP (2 x 35 Menit)</span>
             </div>
             <div>
-              <h2 class="text-xl font-extrabold text-slate-800">Matematika — Siklus Mandiri 2</h2>
-              <p class="text-xs md:text-sm font-semibold text-blue-700 mt-0.5">Pertemuan 1</p>
+              <h2 class="text-xl font-extrabold text-slate-800">Matematika — Siklus 2 Pertemuan 1</h2>
+              <p class="text-xs md:text-sm font-semibold text-blue-700 mt-0.5">Topik: Konsep Dasar Pengukuran</p>
             </div>
-            <p class="text-xs md:text-sm text-slate-600 leading-relaxed">Rencana Pembelajaran Mendalam (RPM) Matematika Siklus Mandiri 2 Pertemuan 1 yang dirancang untuk memfasilitasi pemahaman kontekstual murid.</p>
+            <p class="text-xs md:text-sm text-slate-600 leading-relaxed">Rencana Pembelajaran Mendalam (RPM) Matematika Siklus 2 Pertemuan 1 memfasilitasi pemahaman dasar pengukuran melalui Problem Based Learning.</p>
             <div class="bg-slate-50 p-3 rounded-2xl border border-slate-100 text-xs text-slate-600 grid grid-cols-2 gap-2">
               <div><strong class="text-slate-800">Model:</strong> Problem Based Learning</div>
               <div><strong class="text-slate-800">Pendekatan:</strong> Deep Learning</div>
@@ -76,6 +84,16 @@
           </div>
         </div>
       </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="bg-white rounded-2xl p-4 md:p-5 border border-slate-200/80 shadow-sm space-y-1">
+          <h3 class="font-extrabold text-xs md:text-sm text-blue-700">1. Analisis Perencanaan & Kesesuaian Teori</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">Sintaks PBL Siklus 2 Pertemuan 1 memadukan apersepsi kontekstual dan orientasi masalah nyata pengukuran pada benda konkret.</p>
+        </div>
+        <div class="bg-white rounded-2xl p-4 md:p-5 border border-slate-200/80 shadow-sm space-y-1">
+          <h3 class="font-extrabold text-xs md:text-sm text-emerald-700">2. Analisis Media, LKPD & Asesmen</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">Penggunaan LKPD kelompok melatih penalaran operasional dasar dan pemahaman satuan baku murid secara bertahap.</p>
+        </div>
+      </div>
     </div>
 
     <!-- ================= SIKLUS 2 - PERTEMUAN 2 ================= -->
@@ -89,10 +107,10 @@
               <span class="bg-blue-100 text-blue-800 text-[11px] font-bold px-2.5 py-0.5 rounded-md">2 JP (2 x 35 Menit)</span>
             </div>
             <div>
-              <h2 class="text-xl font-extrabold text-slate-800">IPAS — Siklus Mandiri 2</h2>
-              <p class="text-xs md:text-sm font-semibold text-blue-700 mt-0.5">Pertemuan 2</p>
+              <h2 class="text-xl font-extrabold text-slate-800">IPAS — Siklus 2 Pertemuan 2</h2>
+              <p class="text-xs md:text-sm font-semibold text-blue-700 mt-0.5">Topik: Observasi Organ Pancaindra</p>
             </div>
-            <p class="text-xs md:text-sm text-slate-600 leading-relaxed">Rencana Pembelajaran Mendalam (RPM) IPAS Siklus Mandiri 2 Pertemuan 2 yang menekankan eksplorasi dan pengamatan langsung.</p>
+            <p class="text-xs md:text-sm text-slate-600 leading-relaxed">Rencana Pembelajaran Mendalam (RPM) IPAS Siklus 2 Pertemuan 2 berfokus pada pengamatan langsung dan pemeliharaan organ tubuh.</p>
             <div class="bg-slate-50 p-3 rounded-2xl border border-slate-100 text-xs text-slate-600 grid grid-cols-2 gap-2">
               <div><strong class="text-slate-800">Model:</strong> Problem Based Learning</div>
               <div><strong class="text-slate-800">Pendekatan:</strong> Deep Learning</div>
@@ -113,6 +131,16 @@
           </div>
         </div>
       </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="bg-white rounded-2xl p-4 md:p-5 border border-slate-200/80 shadow-sm space-y-1">
+          <h3 class="font-extrabold text-xs md:text-sm text-blue-700">1. Analisis Perencanaan & Kesesuaian Teori</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">Pengamatan kontekstual berpasangan menumbuhkan empati serta pemahaman mendalam fungsi organ pancaindra.</p>
+        </div>
+        <div class="bg-white rounded-2xl p-4 md:p-5 border border-slate-200/80 shadow-sm space-y-1">
+          <h3 class="font-extrabold text-xs md:text-sm text-emerald-700">2. Analisis Media, LKPD & Asesmen</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">Penggunaan cermin dan alat peraga sekitar membantu murid mengubah hafalan materi menjadi pengalaman nyata.</p>
+        </div>
+      </div>
     </div>
 
     <!-- ================= SIKLUS 2 - PERTEMUAN 3 ================= -->
@@ -126,10 +154,10 @@
               <span class="bg-blue-100 text-blue-800 text-[11px] font-bold px-2.5 py-0.5 rounded-md">2 JP (2 x 35 Menit)</span>
             </div>
             <div>
-              <h2 class="text-xl font-extrabold text-slate-800">Matematika — Siklus Mandiri 2</h2>
-              <p class="text-xs md:text-sm font-semibold text-blue-700 mt-0.5">Pertemuan 3</p>
+              <h2 class="text-xl font-extrabold text-slate-800">Matematika — Siklus 2 Pertemuan 3</h2>
+              <p class="text-xs md:text-sm font-semibold text-blue-700 mt-0.5">Topik: Pengurangan Teknik Meminjam</p>
             </div>
-            <p class="text-xs md:text-sm text-slate-600 leading-relaxed">Rencana Pembelajaran Mendalam (RPM) Matematika Siklus Mandiri 2 Pertemuan 3 yang berfokus pada pemantapan konsep dan latihan terbimbing.</p>
+            <p class="text-xs md:text-sm text-slate-600 leading-relaxed">RPM Matematika mengintegrasikan latihan terbimbing dan KSE untuk menumbuhkan rasa percaya diri murid saat berhitung.</p>
             <div class="bg-slate-50 p-3 rounded-2xl border border-slate-100 text-xs text-slate-600 grid grid-cols-2 gap-2">
               <div><strong class="text-slate-800">Model:</strong> Problem Based Learning</div>
               <div><strong class="text-slate-800">Pendekatan:</strong> Deep Learning</div>
@@ -150,6 +178,16 @@
           </div>
         </div>
       </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="bg-white rounded-2xl p-4 md:p-5 border border-slate-200/80 shadow-sm space-y-1">
+          <h3 class="font-extrabold text-xs md:text-sm text-blue-700">1. Analisis Perencanaan & Kesesuaian Teori</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">Strategi diferensiasi proses digunakan untuk mendampingi siswa dengan beragam tingkat kesiapan matematika.</p>
+        </div>
+        <div class="bg-white rounded-2xl p-4 md:p-5 border border-slate-200/80 shadow-sm space-y-1">
+          <h3 class="font-extrabold text-xs md:text-sm text-emerald-700">2. Analisis Media, LKPD & Asesmen</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">Media kertas nilai tempat membantu visualisasi konsep pengurangan bersusun meminjam secara konkret.</p>
+        </div>
+      </div>
     </div>
 
     <!-- ================= SIKLUS 3 - PERTEMUAN 1 ================= -->
@@ -163,10 +201,10 @@
               <span class="bg-blue-100 text-blue-800 text-[11px] font-bold px-2.5 py-0.5 rounded-md">2 JP (2 x 35 Menit)</span>
             </div>
             <div>
-              <h2 class="text-xl font-extrabold text-slate-800">IPAS — Siklus Mandiri 3</h2>
-              <p class="text-xs md:text-sm font-semibold text-blue-700 mt-0.5">Pertemuan 1</p>
+              <h2 class="text-xl font-extrabold text-slate-800">IPAS — Siklus 3 Pertemuan 1</h2>
+              <p class="text-xs md:text-sm font-semibold text-blue-700 mt-0.5">Topik: Penyelidikan Kelompok Lingkungan</p>
             </div>
-            <p class="text-xs md:text-sm text-slate-600 leading-relaxed">Rencana Pembelajaran Mendalam (RPM) IPAS Siklus Mandiri 3 Pertemuan 1 mengintegrasikan penyelidikan kelompok interaktif.</p>
+            <p class="text-xs md:text-sm text-slate-600 leading-relaxed">RPM IPAS Siklus 3 Pertemuan 1 memandu penyelidikan kelompok untuk memecahkan masalah ekosistem sekitar.</p>
             <div class="bg-slate-50 p-3 rounded-2xl border border-slate-100 text-xs text-slate-600 grid grid-cols-2 gap-2">
               <div><strong class="text-slate-800">Model:</strong> Problem Based Learning</div>
               <div><strong class="text-slate-800">Pendekatan:</strong> Deep Learning</div>
@@ -187,6 +225,16 @@
           </div>
         </div>
       </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="bg-white rounded-2xl p-4 md:p-5 border border-slate-200/80 shadow-sm space-y-1">
+          <h3 class="font-extrabold text-xs md:text-sm text-blue-700">1. Analisis Perencanaan & Kesesuaian Teori</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">Pembelajaran berbasis masalah merangsang rasa ingin tahu dan kerjasama tim antar siswa.</p>
+        </div>
+        <div class="bg-white rounded-2xl p-4 md:p-5 border border-slate-200/80 shadow-sm space-y-1">
+          <h3 class="font-extrabold text-xs md:text-sm text-emerald-700">2. Analisis Media, LKPD & Asesmen</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">LKPD terstruktur memandu tahap demi tahap pengumpulan data hasil penyelidikan dengan rapi.</p>
+        </div>
+      </div>
     </div>
 
     <!-- ================= SIKLUS 3 - PERTEMUAN 2 ================= -->
@@ -200,10 +248,10 @@
               <span class="bg-blue-100 text-blue-800 text-[11px] font-bold px-2.5 py-0.5 rounded-md">2 JP (2 x 35 Menit)</span>
             </div>
             <div>
-              <h2 class="text-xl font-extrabold text-slate-800">Matematika — Siklus Mandiri 3</h2>
-              <p class="text-xs md:text-sm font-semibold text-blue-700 mt-0.5">Pertemuan 2</p>
+              <h2 class="text-xl font-extrabold text-slate-800">Matematika — Siklus 3 Pertemuan 2</h2>
+              <p class="text-xs md:text-sm font-semibold text-blue-700 mt-0.5">Topik: Penalaran Operasional Hitung</p>
             </div>
-            <p class="text-xs md:text-sm text-slate-600 leading-relaxed">Rencana Pembelajaran Mendalam (RPM) Matematika Siklus Mandiri 3 Pertemuan 2 berfokus pada penguatan penalaran operasional.</p>
+            <p class="text-xs md:text-sm text-slate-600 leading-relaxed">RPM Matematika Siklus 3 Pertemuan 2 berfokus pada penalaran logis serta pemecahan masalah bergambar.</p>
             <div class="bg-slate-50 p-3 rounded-2xl border border-slate-100 text-xs text-slate-600 grid grid-cols-2 gap-2">
               <div><strong class="text-slate-800">Model:</strong> Problem Based Learning</div>
               <div><strong class="text-slate-800">Pendekatan:</strong> Deep Learning</div>
@@ -224,6 +272,16 @@
           </div>
         </div>
       </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="bg-white rounded-2xl p-4 md:p-5 border border-slate-200/80 shadow-sm space-y-1">
+          <h3 class="font-extrabold text-xs md:text-sm text-blue-700">1. Analisis Perencanaan & Kesesuaian Teori</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">Perancangan skenario masalah meningkatkan kemampuan berpikir tingkat tinggi (HOTS) siswa.</p>
+        </div>
+        <div class="bg-white rounded-2xl p-4 md:p-5 border border-slate-200/80 shadow-sm space-y-1">
+          <h3 class="font-extrabold text-xs md:text-sm text-emerald-700">2. Analisis Media, LKPD & Asesmen</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">Rubrik penilaian mengukur kecermatan serta strategi penyelesaian masalah siswa.</p>
+        </div>
+      </div>
     </div>
 
     <!-- ================= SIKLUS 3 - PERTEMUAN 3 ================= -->
@@ -237,10 +295,10 @@
               <span class="bg-blue-100 text-blue-800 text-[11px] font-bold px-2.5 py-0.5 rounded-md">2 JP (2 x 35 Menit)</span>
             </div>
             <div>
-              <h2 class="text-xl font-extrabold text-slate-800">Matematika — Siklus Mandiri 3</h2>
-              <p class="text-xs md:text-sm font-semibold text-blue-700 mt-0.5">Pertemuan 3</p>
+              <h2 class="text-xl font-extrabold text-slate-800">Matematika — Siklus 3 Pertemuan 3</h2>
+              <p class="text-xs md:text-sm font-semibold text-blue-700 mt-0.5">Topik: Aplikasi Matematika Sehari-hari</p>
             </div>
-            <p class="text-xs md:text-sm text-slate-600 leading-relaxed">Rencana Pembelajaran Mendalam (RPM) Matematika Siklus Mandiri 3 Pertemuan 3 yang mendalamkan penerapan dalam kehidupan sehari-hari.</p>
+            <p class="text-xs md:text-sm text-slate-600 leading-relaxed">RPM Matematika Siklus 3 Pertemuan 3 yang mendalamkan penerapan matematika pada situasi kehidupan nyata.</p>
             <div class="bg-slate-50 p-3 rounded-2xl border border-slate-100 text-xs text-slate-600 grid grid-cols-2 gap-2">
               <div><strong class="text-slate-800">Model:</strong> Problem Based Learning</div>
               <div><strong class="text-slate-800">Pendekatan:</strong> Deep Learning</div>
@@ -261,6 +319,16 @@
           </div>
         </div>
       </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="bg-white rounded-2xl p-4 md:p-5 border border-slate-200/80 shadow-sm space-y-1">
+          <h3 class="font-extrabold text-xs md:text-sm text-blue-700">1. Analisis Perencanaan & Kesesuaian Teori</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">Keterkaitan materi dengan konteks keseharian murid memperkuat kebermaknaan pembelajaran.</p>
+        </div>
+        <div class="bg-white rounded-2xl p-4 md:p-5 border border-slate-200/80 shadow-sm space-y-1">
+          <h3 class="font-extrabold text-xs md:text-sm text-emerald-700">2. Analisis Media, LKPD & Asesmen</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">Sesi presentasi kelompok memicu kepercayaan diri murid dalam menyampaikan argumentasi matematika.</p>
+        </div>
+      </div>
     </div>
 
     <!-- ================= SIKLUS 4 - PERTEMUAN 1 ================= -->
@@ -274,10 +342,10 @@
               <span class="bg-blue-100 text-blue-800 text-[11px] font-bold px-2.5 py-0.5 rounded-md">2 JP (2 x 35 Menit)</span>
             </div>
             <div>
-              <h2 class="text-xl font-extrabold text-slate-800">IPAS — Siklus Mandiri 4</h2>
-              <p class="text-xs md:text-sm font-semibold text-blue-700 mt-0.5">Pertemuan 1</p>
+              <h2 class="text-xl font-extrabold text-slate-800">IPAS — Siklus 4 Pertemuan 1</h2>
+              <p class="text-xs md:text-sm font-semibold text-blue-700 mt-0.5">Topik: Orientasi Isu Lingkungan Sekitar</p>
             </div>
-            <p class="text-xs md:text-sm text-slate-600 leading-relaxed">Rencana Pembelajaran Mendalam (RPM) IPAS Siklus Mandiri 4 Pertemuan 1 diawali dengan orientasi masalah kontekstual lingkungan.</p>
+            <p class="text-xs md:text-sm text-slate-600 leading-relaxed">RPM IPAS Siklus 4 Pertemuan 1 diawali dengan orientasi masalah kontekstual lingkungan sekolah.</p>
             <div class="bg-slate-50 p-3 rounded-2xl border border-slate-100 text-xs text-slate-600 grid grid-cols-2 gap-2">
               <div><strong class="text-slate-800">Model:</strong> Problem Based Learning</div>
               <div><strong class="text-slate-800">Pendekatan:</strong> Deep Learning</div>
@@ -298,6 +366,16 @@
           </div>
         </div>
       </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="bg-white rounded-2xl p-4 md:p-5 border border-slate-200/80 shadow-sm space-y-1">
+          <h3 class="font-extrabold text-xs md:text-sm text-blue-700">1. Analisis Perencanaan & Kesesuaian Teori</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">Studi masalah lingkungan sekitar memacu kepedulian sosial dan pemikiran kritis murid.</p>
+        </div>
+        <div class="bg-white rounded-2xl p-4 md:p-5 border border-slate-200/80 shadow-sm space-y-1">
+          <h3 class="font-extrabold text-xs md:text-sm text-emerald-700">2. Analisis Media, LKPD & Asesmen</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">Asesmen proses difokuskan pada keaktifan dan kerja sama siswa selama sesi diskusi kelompok.</p>
+        </div>
+      </div>
     </div>
 
     <!-- ================= SIKLUS 4 - PERTEMUAN 2 ================= -->
@@ -311,10 +389,10 @@
               <span class="bg-blue-100 text-blue-800 text-[11px] font-bold px-2.5 py-0.5 rounded-md">2 JP (2 x 35 Menit)</span>
             </div>
             <div>
-              <h2 class="text-xl font-extrabold text-slate-800">Matematika — Siklus Mandiri 4</h2>
-              <p class="text-xs md:text-sm font-semibold text-blue-700 mt-0.5">Pertemuan 2</p>
+              <h2 class="text-xl font-extrabold text-slate-800">Matematika — Siklus 4 Pertemuan 2</h2>
+              <p class="text-xs md:text-sm font-semibold text-blue-700 mt-0.5">Topik: Praktik Menggunakan Alat Ukur</p>
             </div>
-            <p class="text-xs md:text-sm text-slate-600 leading-relaxed">Rencana Pembelajaran Mendalam (RPM) Matematika Siklus Mandiri 4 Pertemuan 2 berfokus pada ketrampilan manipulatif dan alat bantu.</p>
+            <p class="text-xs md:text-sm text-slate-600 leading-relaxed">RPM Matematika Siklus 4 Pertemuan 2 berfokus pada ketrampilan manipulatif dan penggunaan alat ukur baku.</p>
             <div class="bg-slate-50 p-3 rounded-2xl border border-slate-100 text-xs text-slate-600 grid grid-cols-2 gap-2">
               <div><strong class="text-slate-800">Model:</strong> Problem Based Learning</div>
               <div><strong class="text-slate-800">Pendekatan:</strong> Deep Learning</div>
@@ -335,6 +413,16 @@
           </div>
         </div>
       </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="bg-white rounded-2xl p-4 md:p-5 border border-slate-200/80 shadow-sm space-y-1">
+          <h3 class="font-extrabold text-xs md:text-sm text-blue-700">1. Analisis Perencanaan & Kesesuaian Teori</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">Pengalaman hands-on langsung meningkatkan daya ingat jangka panjang murid.</p>
+        </div>
+        <div class="bg-white rounded-2xl p-4 md:p-5 border border-slate-200/80 shadow-sm space-y-1">
+          <h3 class="font-extrabold text-xs md:text-sm text-emerald-700">2. Analisis Media, LKPD & Asesmen</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">Asesmen unjuk kerja memberikan gambaran akurat mengenai ketelitian dan ketrampilan mengukur murid.</p>
+        </div>
+      </div>
     </div>
 
     <!-- ================= SIKLUS 4 - PERTEMUAN 3 ================= -->
@@ -348,10 +436,10 @@
               <span class="bg-blue-100 text-blue-800 text-[11px] font-bold px-2.5 py-0.5 rounded-md">2 JP (2 x 35 Menit)</span>
             </div>
             <div>
-              <h2 class="text-xl font-extrabold text-slate-800">IPAS — Siklus Mandiri 4</h2>
-              <p class="text-xs md:text-sm font-semibold text-blue-700 mt-0.5">Pertemuan 3</p>
+              <h2 class="text-xl font-extrabold text-slate-800">IPAS — Siklus 4 Pertemuan 3</h2>
+              <p class="text-xs md:text-sm font-semibold text-blue-700 mt-0.5">Topik: Evaluasi & Sintesis Pembelajaran</p>
             </div>
-            <p class="text-xs md:text-sm text-slate-600 leading-relaxed">Rencana Pembelajaran Mendalam (RPM) IPAS Siklus Mandiri 4 Pertemuan 3 sebagai puncak sintesis dan evaluasi pembelajaran.</p>
+            <p class="text-xs md:text-sm text-slate-600 leading-relaxed">RPM IPAS Siklus 4 Pertemuan 3 sebagai puncak refleksi dan evaluasi menyeluruh rangkaian pembelajaran.</p>
             <div class="bg-slate-50 p-3 rounded-2xl border border-slate-100 text-xs text-slate-600 grid grid-cols-2 gap-2">
               <div><strong class="text-slate-800">Model:</strong> Problem Based Learning</div>
               <div><strong class="text-slate-800">Pendekatan:</strong> Deep Learning</div>
@@ -372,25 +460,19 @@
           </div>
         </div>
       </div>
-    </div>
-
-    <!-- ANALISIS ARTIFAK -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-5">
-      <div class="bg-white rounded-2xl p-4 md:p-5 border border-slate-200/80 shadow-sm space-y-1">
-        <h3 class="font-extrabold text-xs md:text-sm text-blue-700">1. Analisis Perencanaan & Kesesuaian Teori</h3>
-        <p class="text-xs text-slate-600 leading-relaxed">
-          Perancangan materi dan langkah pembelajaran disesuaikan dengan level kemampuan awal peserta didik hasil asesmen diagnostik, serta mengintegrasikan teori belajar konstruktivisme.
-        </p>
-      </div>
-      <div class="bg-white rounded-2xl p-4 md:p-5 border border-slate-200/80 shadow-sm space-y-1">
-        <h3 class="font-extrabold text-xs md:text-sm text-emerald-700">2. Analisis Media, LKPD & Asesmen</h3>
-        <p class="text-xs text-slate-600 leading-relaxed">
-          Media konkret dan LKPD interaktif memandu peserta didik melakukan penyelidikan saintifik secara berpasangan/kelompok untuk memperkuat pemahaman konsep mendalam.
-        </p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="bg-white rounded-2xl p-4 md:p-5 border border-slate-200/80 shadow-sm space-y-1">
+          <h3 class="font-extrabold text-xs md:text-sm text-blue-700">1. Analisis Perencanaan & Kesesuaian Teori</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">Refleksi akhir membantu konsolidasi seluruh pengetahuan yang didapatkan sepanjang siklus.</p>
+        </div>
+        <div class="bg-white rounded-2xl p-4 md:p-5 border border-slate-200/80 shadow-sm space-y-1">
+          <h3 class="font-extrabold text-xs md:text-sm text-emerald-700">2. Analisis Media, LKPD & Asesmen</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">Evaluasi sumatif akhir mengukur ketuntasan belajar murid secara menyeluruh.</p>
+        </div>
       </div>
     </div>
 
-    <!-- BUKTI ARTIFAK PEMBELAJARAN (TEMPAT FOTO DOKUMENTASI) -->
+    <!-- BUKTI ARTIFAK PEMBELAJARAN (BAGIAN DOKUMENTASI FOTO DENGAN LABEL DINAMIS) -->
     <div class="bg-white rounded-3xl p-5 md:p-6 border border-slate-200/80 shadow-sm space-y-4 mt-5">
       <div class="flex items-center justify-between border-b border-slate-100 pb-3">
         <div class="flex items-center gap-2">
@@ -447,49 +529,83 @@
 
 </div>
 
-<!-- LOGIKA CHANGE EVENT DROPDOWN -->
+<!-- SCRIPT PENGATUR SWITCH TOMBOL & KONTEN -->
 <script>
   (function() {
-    function changeArtifakView() {
-      const siklusVal = document.getElementById('select-siklus').value;
-      const pertemuanVal = document.getElementById('select-pertemuan').value;
+    let activeSiklus = 2;
+    let activePertemuan = 1;
 
+    function updateView() {
       // Sembunyikan semua item
       const items = document.querySelectorAll('.artifak-item');
       items.forEach(el => el.classList.add('hidden'));
 
-      // Tampilkan item pilihan pengguna
-      const targetId = `item-s${siklusVal}-p${pertemuanVal}`;
-      const activeEl = document.getElementById(targetId);
+      // Tampilkan item aktif
+      const activeEl = document.getElementById(`item-s${activeSiklus}-p${activePertemuan}`);
       if (activeEl) {
         activeEl.classList.remove('hidden');
       }
 
+      // Update style tombol Siklus
+      [2, 3, 4].forEach(s => {
+        const btn = document.getElementById(`btn-s${s}`);
+        if (btn) {
+          if (s === activeSiklus) {
+            btn.className = "btn-siklus flex-1 md:flex-none py-1.5 px-4 rounded-lg text-xs font-extrabold transition-all cursor-pointer bg-white text-blue-700 shadow-xs border border-slate-200/60";
+          } else {
+            btn.className = "btn-siklus flex-1 md:flex-none py-1.5 px-4 rounded-lg text-xs font-bold transition-all cursor-pointer text-slate-500 hover:text-slate-800 hover:bg-white/60";
+          }
+        }
+      });
+
+      // Update style tombol Pertemuan
+      [1, 2, 3].forEach(p => {
+        const btn = document.getElementById(`btn-p${p}`);
+        if (btn) {
+          if (p === activePertemuan) {
+            btn.className = "btn-pertemuan flex-1 md:flex-none py-1.5 px-4 rounded-lg text-xs font-extrabold transition-all cursor-pointer bg-blue-600 text-white shadow-xs";
+          } else {
+            btn.className = "btn-pertemuan flex-1 md:flex-none py-1.5 px-4 rounded-lg text-xs font-semibold transition-all cursor-pointer text-slate-600 hover:text-slate-900 hover:bg-white/60";
+          }
+        }
+      });
+
       // Update label bukti foto
       const labelBukti = document.getElementById('label-bukti-pertemuan');
       if (labelBukti) {
-        labelBukti.textContent = `Siklus ${siklusVal} — Pertemuan ${pertemuanVal}`;
+        labelBukti.textContent = `Siklus ${activeSiklus} — Pertemuan ${activePertemuan}`;
       }
     }
 
-    function initDropdownNav() {
-      const selectSiklus = document.getElementById('select-siklus');
-      const selectPertemuan = document.getElementById('select-pertemuan');
+    function initEvents() {
+      [2, 3, 4].forEach(s => {
+        const btn = document.getElementById(`btn-s${s}`);
+        if (btn) {
+          btn.onclick = function() {
+            activeSiklus = s;
+            activePertemuan = 1;
+            updateView();
+          };
+        }
+      });
 
-      if (selectSiklus) {
-        selectSiklus.addEventListener('change', changeArtifakView);
-      }
-      if (selectPertemuan) {
-        selectPertemuan.addEventListener('change', changeArtifakView);
-      }
+      [1, 2, 3].forEach(p => {
+        const btn = document.getElementById(`btn-p${p}`);
+        if (btn) {
+          btn.onclick = function() {
+            activePertemuan = p;
+            updateView();
+          };
+        }
+      });
 
-      changeArtifakView();
+      updateView();
     }
 
     if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', initDropdownNav);
+      document.addEventListener('DOMContentLoaded', initEvents);
     } else {
-      initDropdownNav();
+      initEvents();
     }
   })();
 </script>
